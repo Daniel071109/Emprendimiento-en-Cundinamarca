@@ -1,23 +1,43 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% block title %}Datasets - Análisis Territorial{% endblock %}
 
 {% block content %}
-
-<h1 style="color:#38bdf8;">Datasets</h1>
-
-<div class="graph">
-
-    <h3>Fuentes de Datos Utilizadas</h3>
-
-    <ul style="font-size:22px;line-height:50px;">
-
-        <li>Localidades de Bogotá</li>
-        <li>Población por grupo etario</li>
-        <li>Distribución demográfica</li>
-        <li>Datos abiertos territoriales</li>
-        <li>Indicadores para minería de datos</li>
-
-    </ul>
-
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body p-5">
+                    <i class="fas fa-database fa-3x text-primary mb-3"></i>
+                    <h1 class="display-5 fw-bold mb-4">Datasets Utilizados</h1>
+                    
+                    <div class="list-group">
+                        <div class="list-group-item border-0 shadow-sm mb-3">
+                            <h5><i class="fas fa-file-csv text-success me-2"></i>localidades.csv</h5>
+                            <p class="mb-1">Información demográfica por localidad, incluyendo distribución por sexo y grupos etarios.</p>
+                            <small class="text-muted">Formato: CSV | Registros: 1200+</small>
+                        </div>
+                        
+                        <div class="list-group-item border-0 shadow-sm mb-3">
+                            <h5><i class="fas fa-chart-line text-primary me-2"></i>emprendimiento.csv</h5>
+                            <p class="mb-1">Datos sobre unidades productivas y emprendimientos activos por zona.</p>
+                            <small class="text-muted">Formato: CSV | Registros: 500+</small>
+                        </div>
+                        
+                        <div class="list-group-item border-0 shadow-sm mb-3">
+                            <h5><i class="fas fa-table text-warning me-2"></i>dinamica.xlsx</h5>
+                            <p class="mb-1">Series temporales de crecimiento y sostenibilidad empresarial.</p>
+                            <small class="text-muted">Formato: Excel | Período: 2020-2024</small>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Los datos provienen de fuentes oficiales abiertas y han sido procesados para su análisis.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 {% endblock %}

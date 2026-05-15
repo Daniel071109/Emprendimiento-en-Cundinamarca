@@ -1,161 +1,236 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Análisis Territorial{% endblock %}
 
 {% block content %}
-
-<h1 style="
-color:#38bdf8;
-font-size:60px;
-font-weight:bold;
-">
-    Sistema Inteligente de Análisis Territorial
-</h1>
-
-<p style="
-font-size:24px;
-color:#cbd5e1;
-margin-top:20px;
-line-height:1.6;
-max-width:1200px;
-">
-    Dashboard enfocado en minería de datos aplicada al análisis
-    de patrones poblacionales y sostenibilidad del emprendimiento en Bogotá.
-</p>
-
-<div class="row mt-5 g-4">
-
-    <div class="col-md-3">
-
-        <div class="card-kpi">
-
-            <h1>{{ total_poblacion }}</h1>
-
-            <p>Población Analizada</p>
-
+<div class="container-fluid px-4">
+    <!-- Header con gradiente -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card bg-gradient-primary text-white shadow-lg border-0">
+                <div class="card-body py-4">
+                    <h1 class="display-5 fw-bold mb-2">
+                        <i class="fas fa-chart-line me-3"></i>Dashboard Territorial
+                    </h1>
+                    <p class="lead mb-0">Análisis de patrones poblacionales y sostenibilidad del emprendimiento</p>
+                </div>
+            </div>
         </div>
-
     </div>
 
-    <div class="col-md-3">
-
-        <div class="card-kpi">
-
-            <h1>{{ total_localidades }}</h1>
-
-            <p>Localidades</p>
-
+    <!-- KPIs mejorados -->
+    <div class="row mb-4 g-3">
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2">Población Analizada</h6>
+                            <h2 class="display-4 fw-bold mb-0">{{ "{:,.0f}".format(total_poblacion) }}</h2>
+                        </div>
+                        <div class="rounded-circle bg-primary bg-opacity-10 p-3">
+                            <i class="fas fa-users fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
+        
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2">Localidades</h6>
+                            <h2 class="display-4 fw-bold mb-0">{{ total_localidades }}</h2>
+                        </div>
+                        <div class="rounded-circle bg-success bg-opacity-10 p-3">
+                            <i class="fas fa-map-marker-alt fa-2x text-success"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2">Mayor Potencial</h6>
+                            <h3 class="fw-bold mb-0 text-warning">{{ localidad_top }}</h3>
+                        </div>
+                        <div class="rounded-circle bg-warning bg-opacity-10 p-3">
+                            <i class="fas fa-trophy fa-2x text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2">Grupo Dominante</h6>
+                            <h3 class="fw-bold mb-0 text-info">{{ grupo_top }}</h3>
+                        </div>
+                        <div class="rounded-circle bg-info bg-opacity-10 p-3">
+                            <i class="fas fa-calendar-alt fa-2x text-info"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="col-md-3">
-
-        <div class="card-kpi">
-
-            <h1>{{ localidad_top }}</h1>
-
-            <p>Mayor Potencial Territorial</p>
-
+    <!-- Gráficos principales -->
+    <div class="row g-4 mb-4">
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-white border-0 pt-4">
+                    <h4 class="mb-0 fw-bold">
+                        <i class="fas fa-chart-bar me-2 text-primary"></i>Top Localidades por Potencial
+                    </h4>
+                </div>
+                <div class="card-body">
+                    {{ graph_localidades|safe }}
+                </div>
+            </div>
         </div>
-
+        
+        <div class="col-lg-5">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-white border-0 pt-4">
+                    <h4 class="mb-0 fw-bold">
+                        <i class="fas fa-venus-mars me-2 text-success"></i>Distribución por Sexo
+                    </h4>
+                </div>
+                <div class="card-body">
+                    {{ graph_sexo|safe }}
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="col-md-3">
-
-        <div class="card-kpi">
-
-            <h1>{{ grupo_top }}</h1>
-
-            <p>Grupo Dominante</p>
-
+    <!-- Ranking y grupos etarios -->
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-white border-0 pt-4">
+                    <h4 class="mb-0 fw-bold">
+                        <i class="fas fa-ranking-star me-2 text-warning"></i>Ranking Territorial
+                    </h4>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th class="border-0">#</th>
+                                    <th class="border-0">Localidad</th>
+                                    <th class="border-0 text-end">Población</th>
+                                    <th class="border-0">Potencial</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in top %}
+                                <tr>
+                                    <td class="fw-bold">
+                                        <span class="badge-ranking">
+                                            {{ loop.index }}
+                                        </span>
+                                    </td>
+                                    <td class="fw-bold">{{ item.Localidad }}</td>
+                                    <td class="text-end">{{ "{:,.0f}".format(item.Poblacion) }}</td>
+                                    <td style="width: 40%;">
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-success" 
+                                                 style="width: {{ (item.Poblacion / top[0].Poblacion * 100) | round }}%">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-
+        
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-white border-0 pt-4">
+                    <h4 class="mb-0 fw-bold">
+                        <i class="fas fa-chart-line me-2 text-info"></i>Segmentación por Edad
+                    </h4>
+                </div>
+                <div class="card-body">
+                    {{ graph_grupo|safe }}
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
 
-<div class="row mt-4 g-4">
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .hover-scale {
+        transition: transform 0.3s ease;
+    }
+    
+    .hover-scale:hover {
+        transform: translateY(-5px);
+    }
+    
+    .progress {
+        background-color: #e9ecef;
+        border-radius: 10px;
+    }
+    
+    .progress-bar {
+        border-radius: 10px;
+        transition: width 0.6s ease;
+    }
+    
+    .card {
+        border-radius: 15px !important;
+        overflow: hidden;
+    }
+    
+    .table > :not(caption) > * > * {
+        padding: 1rem;
+    }
+    
+    .badge-ranking {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        color: white;
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+</style>
 
-    <div class="col-md-8">
-
-        <div class="graph">
-
-            {{ graph_localidades|safe }}
-
-        </div>
-
-    </div>
-
-    <div class="col-md-4">
-
-        <div class="graph">
-
-            {{ graph_sexo|safe }}
-
-        </div>
-
-    </div>
-
-</div>
-
-<div class="row mt-4">
-
-    <div class="col-md-12">
-
-        <div class="graph">
-
-            {{ graph_grupo|safe }}
-
-        </div>
-
-    </div>
-
-</div>
-
-<div class="graph mt-4">
-
-    <h2 style="
-    margin-bottom:25px;
-    color:white;
-    ">
-        Ranking Territorial
-    </h2>
-
-    <table class="table table-dark table-hover">
-
-        <thead>
-
-            <tr>
-
-                <th>#</th>
-
-                <th>Localidad</th>
-
-                <th>Población</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            {% for item in top %}
-
-            <tr>
-
-                <td>{{ loop.index }}</td>
-
-                <td>{{ item }}</td>
-
-                <td>Disponible</td>
-
-            </tr>
-
-            {% endfor %}
-
-        </tbody>
-
-    </table>
-
-</div>
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const progressBars = document.querySelectorAll('.progress-bar');
+        progressBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0%';
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 100);
+        });
+    });
+</script>
 {% endblock %}

@@ -1,28 +1,54 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% block title %}Acerca de - Sistema de Análisis Territorial{% endblock %}
 
 {% block content %}
-
-<h1 style="color:#38bdf8;">About</h1>
-
-<div class="graph">
-
-    <h3>Proyecto Académico</h3>
-
-    <p style="font-size:24px;line-height:45px;">
-
-        Sistema inteligente basado en minería de datos y análisis territorial
-        aplicado al estudio de patrones poblacionales relacionados
-        con la sostenibilidad del emprendimiento en Bogotá.
-
-        Desarrollado con:
-        Flask,
-        Python,
-        Plotly,
-        Bootstrap
-        y datasets abiertos.
-
-    </p>
-
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body p-5">
+                    <i class="fas fa-info-circle fa-3x text-primary mb-3"></i>
+                    <h1 class="display-5 fw-bold mb-4">Acerca del Proyecto</h1>
+                    
+                    <h4 class="mt-4"><i class="fas fa-bullseye text-primary me-2"></i>Objetivo</h4>
+                    <p class="lead">
+                        Implementar un sistema de análisis inteligente basado en datos abiertos 
+                        para identificar patrones que afectan la sostenibilidad del emprendimiento 
+                        en Cundinamarca.
+                    </p>
+                    
+                    <h4 class="mt-4"><i class="fas fa-microscope text-success me-2"></i>Enfoque Metodológico</h4>
+                    <p>
+                        Se aplican técnicas de minería de datos para extraer, transformar y analizar 
+                        información poblacional, identificando correlaciones y tendencias significativas 
+                        para la toma de decisiones territoriales.
+                    </p>
+                    
+                    <h4 class="mt-4"><i class="fas fa-database text-warning me-2"></i>Fuentes de Datos</h4>
+                    <ul>
+                        <li>Datos abiertos de caracterización poblacional</li>
+                        <li>Estadísticas demográficas oficiales</li>
+                        <li>Indicadores económicos por localidad</li>
+                    </ul>
+                    
+                    <h4 class="mt-4"><i class="fas fa-code text-info me-2"></i>Tecnologías Utilizadas</h4>
+                    <ul>
+                        <li>Python con Flask para el backend</li>
+                        <li>Plotly para visualización interactiva</li>
+                        <li>Pandas para procesamiento de datos</li>
+                        <li>Bootstrap para interfaz responsive</li>
+                    </ul>
+                    
+                    <hr class="my-4">
+                    
+                    <p class="text-muted text-center">
+                        <i class="fas fa-graduation-cap me-1"></i>
+                        Proyecto académico enfocado en minería de datos aplicada a políticas de emprendimiento.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 {% endblock %}
