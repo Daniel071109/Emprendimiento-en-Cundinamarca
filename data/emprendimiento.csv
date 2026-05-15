@@ -1,0 +1,83 @@
+Id;Entidad de Ubicación;Dirección;Localidad;Ubicación Interna;Horario de Atención;Sitio Web;coord_x;coord_y
+28;PLAZA DE MERCADO LAS FERIAS;Calle 74B #69Q-35;ENGATIVA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,08940239;4,686412595
+29;SUBDIRECCION LOCAL DE INTEGRACION SOCIAL ENGATIVA - SANTA HELENITA;Carrera 78 # 69 A - 57;ENGATIVA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,10297755;4,689326175
+30;UNIDAD DE SERVICIOS DE SALUD BOYAYA REAL;Carrera 74 A # 26 A - 46;ENGATIVA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,099377;4,686214
+31;CAPS ZONA FRANCA;Carrera 106 # 15a - 32;FONTIBON;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,1537119;4,672661427
+32;CASA DE LA JUSTICIA FONTIBON;Calle 19 # 99-67;FONTIBON;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,14384801;4,674252978
+33;HOSPITAL FONTIBÓN;Calle 18 # 99-02;FONTIBON;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,14409947;4,673442644
+34;IDPAC;Calle 22 # 68 C - 51;FONTIBON;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,114018;4,648475
+35;ALCALDIA LOCAL DE KENNEDY;Transversal 78 K # 41 A - 04 SUR;KENNEDY;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,1575193;4,619122179
+36;CASA DE LA JUSTICIA KENNEDY;Avenida 1 De Mayo #38C-76 sur;KENNEDY;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,15045016;4,617214255
+37;CENTRO DE DESARROLLO COMUNITARIO C.D.C. BELLAVISTA;Calle 38 Sur # 94-C-29;KENNEDY;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,17161181;4,645953042
+38;HOSPITAL DE KENNEDY;Avenida 1 De Mayo # 40 B- 54 Sur;KENNEDY;Consulta Externa;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,153274;4,616418
+39;SUPERCADE AMERICAS;Carrera 86 # 43-55 Sur;KENNEDY;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,17384525;4,630728841
+40;UNIDAD DE SERVICIOS DE SALUD TINTAL;Calle 10 # 86-90;KENNEDY;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,14699497;4,64968995
+41;UNIDAD PRIMARIA DE ATENCIÓN - UPA 30 DE BOMBEROS;Calle 40C SUR # 79 - 10;KENNEDY;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,15862136;4,622778986
+42;UNIDAD PRIMARIA DE ATENCIÓN - UPA 79 CARVAJAL;Carrera 72 Q # 35 B - 05 Sur;KENNEDY;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,14433479;4,618043007
+43;HOSPITAL CENTRO ORIENTE CAMI SAMPER MENDOZA;Carrera 23 # 22A -26;MARTIRES;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,08104275;4,61699121
+44;BOMBEROS PUENTE ARANDA;Calle 20 # 68 A - 06;PUENTE ARANDA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,1130713;4,645769752
+45;CADE CALLE 13;Calle 13 # 37-35;PUENTE ARANDA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,098049;4,619373
+46;CAMI 17 TRINIDAD GALÁN;Carrera 60 # 4-15;PUENTE ARANDA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,12056113;4,622413194
+47;CENTRO DE COMANDO, CONTROL, COMUNICACIONES Y CÓMPUTO DE BOGOTÁ -C4;Calle 20 # 68 A - 06;PUENTE ARANDA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,1130713;4,645769752
+48;PLAZA DE MERCADO TRINIDAD GALAN;Carrera 60 # 4-B-24;PUENTE ARANDA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,119241;4,622958146
+49;SECRETARIA DE SALUD;Calle 13 # 32-69;PUENTE ARANDA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,094196;4,615523001
+50;SUPERCADE DE LA MOVILIDAD;Calle 13 # 37-35;PUENTE ARANDA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,097893;4,619244
+51;ALCALDIA LOCAL DE RAFAEL URIBE URIBE;Calle 58 Sur # 19-B-21;RAFAEL URIBE;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,13729156;4,566147486
+52;CENTRO DE DESARROLLO COMUNITARIO C.D.C. COLINAS;Carrera 15C # 31-G-40 Sur;RAFAEL URIBE;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,11141085;4,575067842
+53;HOSPITAL RAFAEL URIBE URIBE - CAMI OLAYA;Carrera 21 # 22-51 Sur;RAFAEL URIBE;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,10560109;4,583941139
+54;ALCALDÍA LOCAL SAN CRISTOBAL;Avenida 1 De Mayo # 1 - 40 SUR;SAN CRISTOBAL;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,086397;4,570015
+55;PLAZA DE MERCADO 20 DE JULIO;Carrera 6 # 24-A-30 Sur;SAN CRISTOBAL;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,09317779;4,569925851
+56;SUPERCADE 20 DE JULIO;Carrera 5A # 30D-20 Sur;SAN CRISTOBAL;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,09713234;4,56604054
+57;ALCALDIA LOCAL DE SANTA FE;Calle 21 # 5 - 74;SANTA FE;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,07004592;4,606680648
+58;CAMI PERSEVERANCIA;Carrera 5A # 33A-45;SANTA FE;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,065522;4,619655
+59;IDU;Calle 20 # 9-36;SANTA FE;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,07286415;4,607582793
+60;IPES - CASETA FERIA POPULAR ROTONDA SANTAFÉ;Carrera 7 # 26-88;SANTA FE;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,06930876;4,613340932
+61;IPES - SEDE ADMINISTRATIVA;Carrera 10 # 16-82;SANTA FE;piso 2;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,07485145;4,604707308
+62;PERSONERIA DISTRITAL;Carrera 7 # 21-24;SANTA FE;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,07055381;4,606988261
+63;PLANETARIO DISTRITAL;Calle 26 # 5 - 93;SANTA FE;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,0687081;4,612053924
+65;PUNTO COMERCIAL BOX COULVERT;Calle 12 # 9 - 68;SANTA FE;Túnel;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,07700108;4,600854507
+66;HOSPITAL DEL GUAVIO;Calle 20 # 68 A - 06;SANTA FE;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,1130713;4,645769752
+67;IDARTES;Carrera 8 #15-46;SANTA FE;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,07374661;4,602507546
+75;CANAL CAPITAL;Avenida El Dorado # 66-63;TEUSAQUILLO;piso 5;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,102278;4,649385
+76;CONCEJO DE BOGOTA;Calle 34 # 27-36;TEUSAQUILLO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,077767;4,624936
+77;CONCEJO DE BOGOTA SEDE ADMINISTRATIVA;carrera 30 # 25 - 90;TEUSAQUILLO;piso 2;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,0817292;4,625177126
+78;EMPRESA DE ACUEDUCTO Y ALCANTARILLADO DE BOGOTA;Calle 24 # 37-15;TEUSAQUILLO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,092414;4,628128
+79;SECRETARIA DE DESARROLLO ECONOMICO;Carrera 60 # 63-A-52;TEUSAQUILLO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,085166;4,664567
+80;SECRETARIA DE EDUCACIÓN DEL DISTRITO;Avenida El Dorado # 66-63;TEUSAQUILLO;Cafetería, pisos: 1,2,3 y 4.;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,101969;4,649833
+81;SECRETARIA DISTRITAL DE HACIENDA;Carrera 30 # 24-90;TEUSAQUILLO;Sotano, pisos: 9 y 14;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,08160547;4,62511526
+82;TRANSMILENIO S.A.;Avenida El Dorado # 66-63;TEUSAQUILLO;Cafeteria;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,101969;4,649833
+83;VEEDURIA DISTRITAL - SEDE PARKWAY;Avenida 22 # 39-91;TEUSAQUILLO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,075547;4,62905
+84;ALCALDIA LOCAL DE TUNJUELITO;Calle 51 Sur # 7-35;TUNJUELITO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,12181885;4,556095468
+85;CASA DE LA CULTURA DE TUNJUELITO;Diagonal 52 Sur # 27 - 17;TUNJUELITO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,13451381;4,580771534
+86;HOSPITAL DE TUNAL;Carrera 20 # 47B - 35 Sur;TUNJUELITO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,12823191;4,571451635
+87;HOSPITAL DE TUNJUELITO - UNIDAD DE MEDICINA INTERNA;Avenida Caracas # 51-21 Sur;TUNJUELITO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,126368;4,568055
+88;HOSPITAL DE TUNJUELITO - UNIDAD DE REHABILITACIÓN;Diagonal 53 Sur # 59 A - 11;TUNJUELITO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,148225;4,584704
+89;HOSPITAL TUNAL;Carrera 20 # 47-B-35 Sur;TUNJUELITO;Consulta Externa y Urgencias;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,12823191;4,571451635
+90;SUBDIRECCION LOCAL DE INTEGRACION SOCIAL TUNJUELITO;Diagonal 47 A SUR # 53 - 92;TUNJUELITO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,13929782;4,592809862
+91;UNIDAD MATERNO INFANTIL EL CARMEN;Calle 48 B # 28-80 Sur;TUNJUELITO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,13197555;4,583582873
+96;CENTRO DE DESARROLLO COMUNITARIO C.D.C. LA VICTORIA;Diagonal 37 Bis Sur # 2-81 Este;USME;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,094165;4,553485
+1;ALCALDÍA ANTONIO NARIÑO;Calle 17 sur # 18-49;ANTONIO NARIÑO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,10115876;4,58572993
+2;INSTITUTO DISTRTITAL DE RECREACION Y EL DEPORTE;Calle 63 # 47-06;BARRIOS UNIDOS;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,084885;4,657654
+3;PLAZA DE MERCADO 7 DE AGOSTO;Calle 66 # 23-30;BARRIOS UNIDOS;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,07029368;4,657278746
+4;ALCALDIA LOCAL DE BARRIOS UNIDOS;Calle 20 # 68 A - 06;BARRIOS UNIDOS;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,1130713;4,645769752
+5;ALCALDIA LOCAL DE BOSA;Carrera 80 # 61-05 Sur;BOSA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,18261169;4,608223196
+6;CASA DE LA JUSTICIA BOSA;Calle 53 Bis A Sur # 12-99;BOSA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,12597813;4,559092804
+7;CENTRO DE DESARROLLO COMUNITARIO C.D.C. BOSA - PORVENIR;Carrera 100 # 52-24 Sur;BOSA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,18862513;4,642795907
+8;SUBDIRECCION LOCAL DE INTEGRACION SOCIAL DE BOSA LAURELES;Calle 73 Sur # 81-B-10;BOSA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,19704368;4,611147227
+9;SUPERCADE BOSA;Calle 27 R Sur # 72D-12;BOSA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,18056;4,599015
+10;ALCALDÍA LOCAL DE LA CANDELARIA;Carrera 5 # 12 C - 40;CANDELARIA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,07153378;4,60003385
+11;ALCALDIA MAYOR DE BOGOTA;Carrera 8 # 10-65;CANDELARIA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,0766197;4,598409278
+12;DIAN PARQUE SANTANDER;Carrera 7 Calle 15;CANDELARIA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,071956;4,601591
+13;EDIFICIO SENDAS DE LA DIAN;CARRERA 7 # 6C-54;CANDELARIA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,07731458;4,59391176
+14;FONDO DE PRESTACIONES ECONÓMICAS, CESANTÍAS Y PENSIONES DE BOGOTÁ - FONCEP;Carrera 6 # 14 – 98;CANDELARIA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,07217271;4,601234862
+15;HOSPITAL CENTRO ORIENTE UBA LA CANDELARIA;Calle 12 D # 3 -04;CANDELARIA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,06965467;4,599661204
+16;SECRETARIA DISTRITAL DE CULTURA;Carrera 8 # 9-83;CANDELARIA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,07691422;4,597823408
+17;ALCALDIA LOCAL DE CHAPINERO;Carrera 13 # 54- 78;CHAPINERO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,06452904;4,64174864
+18;CAJA DE VIVIENDA POPULAR;Calle 54 # 13 - 30;CHAPINERO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,0651785;4,641496215
+19;DIAN SEDE CALLE 75;Calle 75 No 15 - 49;CHAPINERO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,06038052;4,662012138
+20;METROVIVIENDA;Carrera 13 # 52 - 25;CHAPINERO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,06546565;4,63946157
+21;SECRETARIA DEL MEDIO AMBIENTE;Avenida Caracas # 54 - 38;CHAPINERO;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,06564089;4,641764206
+22;CAMI SIERRA MORENA;Calle 70 Sur # 56-56;CIUDAD BOLIVAR;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,16514;4,578327
+23;CASA DE LA JUSTICIA CIUDAD BOLIVAR;Transversal 73 # 70 A-04 Sur;CIUDAD BOLIVAR;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,143462;4,565724
+24;HOSPITAL VISTA HERMOSA;Calle 67 A Sur # 18-C-12;CIUDAD BOLIVAR;Consulta Externa y urgencias;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,14508211;4,551932889
+25;ALCALDIA LOCAL DE ENGATIVA;Calle 71 # 73 A 44;ENGATIVA;;8:00 am a 5:00 pm lunes a viernes;http://www.ipes.gov.co;-74,09804011;4,68745573

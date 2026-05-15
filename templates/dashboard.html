@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 style="
+color:#38bdf8;
+font-size:60px;
+font-weight:bold;
+">
+    Sistema Inteligente de Análisis Territorial
+</h1>
+
+<p style="
+font-size:24px;
+color:#cbd5e1;
+margin-top:20px;
+line-height:1.6;
+max-width:1200px;
+">
+    Dashboard enfocado en minería de datos aplicada al análisis
+    de patrones poblacionales y sostenibilidad del emprendimiento en Bogotá.
+</p>
+
+<div class="row mt-5 g-4">
+
+    <div class="col-md-3">
+
+        <div class="card-kpi">
+
+            <h1>{{ total_poblacion }}</h1>
+
+            <p>Población Analizada</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card-kpi">
+
+            <h1>{{ total_localidades }}</h1>
+
+            <p>Localidades</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card-kpi">
+
+            <h1>{{ localidad_top }}</h1>
+
+            <p>Mayor Potencial Territorial</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card-kpi">
+
+            <h1>{{ grupo_top }}</h1>
+
+            <p>Grupo Dominante</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-4 g-4">
+
+    <div class="col-md-8">
+
+        <div class="graph">
+
+            {{ graph_localidades|safe }}
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="graph">
+
+            {{ graph_sexo|safe }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-4">
+
+    <div class="col-md-12">
+
+        <div class="graph">
+
+            {{ graph_grupo|safe }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="graph mt-4">
+
+    <h2 style="
+    margin-bottom:25px;
+    color:white;
+    ">
+        Ranking Territorial
+    </h2>
+
+    <table class="table table-dark table-hover">
+
+        <thead>
+
+            <tr>
+
+                <th>#</th>
+
+                <th>Localidad</th>
+
+                <th>Población</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for item in top %}
+
+            <tr>
+
+                <td>{{ loop.index }}</td>
+
+                <td>{{ item }}</td>
+
+                <td>Disponible</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}
