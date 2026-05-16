@@ -1,30 +1,101 @@
 {% extends "base.html" %}
 
-{% block title %}Dashboard Power BI - Análisis Territorial{% endblock %}
+{% block title %}Dashboard - Análisis de Sostenibilidad{% endblock %}
 
 {% block content %}
 <div class="container-fluid px-4">
-    <!-- Header con gradiente (igual que antes) -->
+    <!-- Header -->
     <div class="row mb-4">
         <div class="col-12">
             <div class="card bg-gradient-primary text-white shadow-lg border-0">
                 <div class="card-body py-4">
                     <h1 class="display-5 fw-bold mb-2">
-                        <i class="fas fa-chart-line me-3"></i>Dashboard Power BI
+                        <i class="fas fa-chart-line me-3"></i>Dashboard de Sostenibilidad
                     </h1>
-                    <p class="lead mb-0">Análisis interactivo de patrones poblacionales y emprendimiento en Cundinamarca</p>
+                    <p class="lead mb-0">Análisis multidimensional de emprendimiento basado en el modelo estrella</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Dashboard de Power BI incrustado -->
+    <!-- KPIs principales del modelo -->
+    <div class="row mb-4 g-3">
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2">Total Empresas</h6>
+                            <h2 class="display-4 fw-bold mb-0">42K</h2>
+                        </div>
+                        <div class="rounded-circle bg-primary bg-opacity-10 p-3">
+                            <i class="fas fa-chart-line fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                    <small class="text-muted">cantidad_emprendimientos</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2">Tasa Sostenibilidad</h6>
+                            <h2 class="display-4 fw-bold mb-0">61.5%</h2>
+                        </div>
+                        <div class="rounded-circle bg-success bg-opacity-10 p-3">
+                            <i class="fas fa-leaf fa-2x text-success"></i>
+                        </div>
+                    </div>
+                    <small class="text-muted">tasa_sostenibilidad</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2">Competitividad</h6>
+                            <h2 class="display-4 fw-bold mb-0">Alta</h2>
+                        </div>
+                        <div class="rounded-circle bg-warning bg-opacity-10 p-3">
+                            <i class="fas fa-trophy fa-2x text-warning"></i>
+                        </div>
+                    </div>
+                    <small class="text-muted">nivel_competitividad</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2">Informalidad</h6>
+                            <h2 class="display-4 fw-bold mb-0">14.6%</h2>
+                        </div>
+                        <div class="rounded-circle bg-danger bg-opacity-10 p-3">
+                            <i class="fas fa-chart-line fa-2x text-danger"></i>
+                        </div>
+                    </div>
+                    <small class="text-muted">nivel_informalidad</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Power BI Embed -->
     <div class="row mb-4">
         <div class="col-12">
             <div class="card border-0 shadow-lg">
                 <div class="card-header bg-white border-0 pt-4">
                     <h4 class="mb-0 fw-bold">
-                        <i class="fas fa-chart-pie me-2 text-primary"></i>Panel Interactivo de Análisis
+                        <i class="fas fa-chart-pie me-2 text-primary"></i>Dashboard Interactivo Power BI
                     </h4>
                 </div>
                 <div class="card-body p-0">
@@ -34,7 +105,7 @@
                             src="https://app.powerbi.com/reportEmbed?reportId=d05abdf5-ab7e-43b5-93e8-5e9a63d59c68&autoAuth=true&ctid=07da67a0-1f43-4e8c-977f-5f88b6470ee6" 
                             frameborder="0" 
                             allowFullScreen="true"
-                            style="border-radius: 10px; width: 100%; height: 100%;">
+                            style="border-radius: 10px;">
                         </iframe>
                     </div>
                 </div>
@@ -42,16 +113,16 @@
         </div>
     </div>
 
-    <!-- Tarjetas informativas (como las que te gustaban) -->
+    <!-- Indicadores del modelo -->
     <div class="row g-4">
         <div class="col-md-4">
             <div class="card border-0 shadow-lg hover-scale">
                 <div class="card-body text-center">
-                    <div class="rounded-circle bg-primary bg-opacity-10 p-3 d-inline-block mb-3">
-                        <i class="fas fa-filter fa-2x text-primary"></i>
+                    <div class="rounded-circle bg-info bg-opacity-10 p-3 d-inline-block mb-3">
+                        <i class="fas fa-chart-pie fa-2x text-info"></i>
                     </div>
-                    <h5>Filtros Interactivos</h5>
-                    <p class="text-muted">Selecciona localidad, rango de edad o período para explorar los datos</p>
+                    <h5>Distribución por Tamaño</h5>
+                    <p class="text-muted">Microempresa: 71.7% | Pequeña: 16.7% | Mediana: 7.2% | Grande: 4.2%</p>
                 </div>
             </div>
         </div>
@@ -59,10 +130,10 @@
             <div class="card border-0 shadow-lg hover-scale">
                 <div class="card-body text-center">
                     <div class="rounded-circle bg-success bg-opacity-10 p-3 d-inline-block mb-3">
-                        <i class="fas fa-chart-line fa-2x text-success"></i>
+                        <i class="fas fa-chart-simple fa-2x text-success"></i>
                     </div>
-                    <h5>Visualizaciones Dinámicas</h5>
-                    <p class="text-muted">Gráficos actualizados en tiempo real al interactuar con el dashboard</p>
+                    <h5>Distribución por Sexo</h5>
+                    <p class="text-muted">Masculino: 50.5% | Femenino: 34.9% | Indeterminado: 14.6%</p>
                 </div>
             </div>
         </div>
@@ -70,22 +141,11 @@
             <div class="card border-0 shadow-lg hover-scale">
                 <div class="card-body text-center">
                     <div class="rounded-circle bg-warning bg-opacity-10 p-3 d-inline-block mb-3">
-                        <i class="fas fa-download fa-2x text-warning"></i>
+                        <i class="fas fa-industry fa-2x text-warning"></i>
                     </div>
-                    <h5>Exportación de Datos</h5>
-                    <p class="text-muted">Descarga los resultados en Excel o CSV para análisis externos</p>
+                    <h5>Top Sectores</h5>
+                    <p class="text-muted">Comercio: 125K | Servicios: 40K | Industria: 25K</p>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Nota técnica -->
-    <div class="row mt-4">
-        <div class="col-12">
-            <div class="alert alert-info border-0 shadow-sm">
-                <i class="fas fa-info-circle me-2"></i>
-                <strong>Dashboard interactivo:</strong> Los datos se actualizan automáticamente desde fuentes oficiales. 
-                Puedes hacer clic en cualquier gráfico para profundizar en el análisis.
             </div>
         </div>
     </div>
@@ -111,6 +171,8 @@
     iframe {
         border: none;
         border-radius: 10px;
+        width: 100%;
+        height: 100%;
     }
     
     .card {
@@ -118,14 +180,4 @@
         overflow: hidden;
     }
 </style>
-
-<script>
-    // Hacer responsive el iframe por si acaso
-    window.addEventListener('resize', function() {
-        const iframe = document.querySelector('iframe');
-        if(iframe) {
-            iframe.style.height = 'auto';
-        }
-    });
-</script>
 {% endblock %}

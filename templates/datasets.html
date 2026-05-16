@@ -9,125 +9,65 @@
             <div class="card border-0 shadow-lg">
                 <div class="card-body p-5">
                     <i class="fas fa-database fa-3x text-primary mb-3"></i>
-                    <h1 class="display-5 fw-bold mb-4">Datasets Utilizados</h1>
-                    <p class="lead mb-4">Fuentes de datos abiertos para el análisis de patrones poblacionales y emprendimiento en Cundinamarca.</p>
+                    <h1 class="display-5 fw-bold mb-4">Estructura de Datos</h1>
+                    <p class="lead mb-4">Modelo multidimensional para análisis de sostenibilidad del emprendimiento.</p>
                     
-                    <div class="list-group">
-                        <!-- Dataset 1: localidades.csv -->
-                        <div class="list-group-item border-0 shadow-sm mb-3">
-                            <div class="d-flex align-items-center">
-                                <div class="rounded-circle bg-primary bg-opacity-10 p-3 me-3">
-                                    <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mb-1">localidades.csv</h5>
-                                    <p class="mb-1">Información demográfica por localidad, incluyendo distribución por sexo y grupos etarios. Base principal para el análisis poblacional.</p>
-                                    <small class="text-muted">
-                                        <i class="fas fa-table me-1"></i>Formato: CSV | 
-                                        <i class="fas fa-chart-line me-1 ms-2"></i>Registros: 1200+ |
-                                        <i class="fas fa-calendar me-1 ms-2"></i>Actualización: 2024
-                                    </small>
-                                </div>
+                    <h4 class="mt-4"><i class="fas fa-cube me-2 text-primary"></i>Tabla de Hechos</h4>
+                    <div class="list-group mb-4">
+                        <div class="list-group-item border-0 shadow-sm mb-2">
+                            <h5>hecho_sostenibilidad</h5>
+                            <p class="mb-1">Almacena las métricas cuantitativas para el análisis de sostenibilidad: cantidad de emprendimientos, tasa de sostenibilidad, nivel de competitividad e informalidad.</p>
+                            <small class="text-muted">Registros: 10,000+ | Actualización: Trimestral</small>
+                        </div>
+                    </div>
+                    
+                    <h4 class="mt-4"><i class="fas fa-tags me-2 text-success"></i>Tablas de Dimensiones</h4>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="list-group-item border-0 shadow-sm mb-2">
+                                <h5><i class="fas fa-map-marker-alt text-success me-2"></i>dim_localidad</h5>
+                                <p class="small mb-1">Datos geográficos y competitividad por localidad</p>
                             </div>
                         </div>
-                        
-                        <!-- Dataset 2: emprendimiento.csv -->
-                        <div class="list-group-item border-0 shadow-sm mb-3">
-                            <div class="d-flex align-items-center">
-                                <div class="rounded-circle bg-success bg-opacity-10 p-3 me-3">
-                                    <i class="fas fa-chart-line fa-2x text-success"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mb-1">emprendimiento.csv</h5>
-                                    <p class="mb-1">Datos sobre unidades productivas, emprendimientos activos, tasas de creación y cierre de empresas por zona y sector económico.</p>
-                                    <small class="text-muted">
-                                        <i class="fas fa-table me-1"></i>Formato: CSV | 
-                                        <i class="fas fa-chart-line me-1 ms-2"></i>Registros: 500+ |
-                                        <i class="fas fa-calendar me-1 ms-2"></i>Actualización: 2024
-                                    </small>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="list-group-item border-0 shadow-sm mb-2">
+                                <h5><i class="fas fa-industry text-warning me-2"></i>dim_sector</h5>
+                                <p class="small mb-1">Clasificación por sector económico y nivel de innovación</p>
                             </div>
                         </div>
-                        
-                        <!-- Dataset 3: dinamica.xlsx -->
-                        <div class="list-group-item border-0 shadow-sm mb-3">
-                            <div class="d-flex align-items-center">
-                                <div class="rounded-circle bg-warning bg-opacity-10 p-3 me-3">
-                                    <i class="fas fa-chart-line fa-2x text-warning"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mb-1">dinamica.xlsx</h5>
-                                    <p class="mb-1">Series temporales de crecimiento económico, sostenibilidad empresarial y evolución del emprendimiento en los últimos años.</p>
-                                    <small class="text-muted">
-                                        <i class="fas fa-file-excel me-1"></i>Formato: Excel | 
-                                        <i class="fas fa-chart-line me-1 ms-2"></i>Series: 2018-2024 |
-                                        <i class="fas fa-calendar me-1 ms-2"></i>Actualización: Trimestral
-                                    </small>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="list-group-item border-0 shadow-sm mb-2">
+                                <h5><i class="fas fa-chart-line text-info me-2"></i>dim_emprendimiento</h5>
+                                <p class="small mb-1">Información de entidades emprendedoras</p>
                             </div>
                         </div>
-                        
-                        <!-- Dataset 4: mercado.xlsx -->
-                        <div class="list-group-item border-0 shadow-sm mb-3">
-                            <div class="d-flex align-items-center">
-                                <div class="rounded-circle bg-info bg-opacity-10 p-3 me-3">
-                                    <i class="fas fa-chart-pie fa-2x text-info"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mb-1">mercado.xlsx</h5>
-                                    <p class="mb-1">Análisis de mercado por sector económico, incluyendo oferta, demanda, competencia y oportunidades de negocio por localidad.</p>
-                                    <small class="text-muted">
-                                        <i class="fas fa-file-excel me-1"></i>Formato: Excel | 
-                                        <i class="fas fa-chart-pie me-1 ms-2"></i>Sectores: 15+ |
-                                        <i class="fas fa-calendar me-1 ms-2"></i>Actualización: Semestral
-                                    </small>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="list-group-item border-0 shadow-sm mb-2">
+                                <h5><i class="fas fa-money-bill-wave text-danger me-2"></i>dim_financiamiento</h5>
+                                <p class="small mb-1">Acceso a crédito y apoyo gubernamental</p>
                             </div>
                         </div>
-                        
-                        <!-- Dataset 5: pib.xlsx -->
-                        <div class="list-group-item border-0 shadow-sm mb-3">
-                            <div class="d-flex align-items-center">
-                                <div class="rounded-circle bg-danger bg-opacity-10 p-3 me-3">
-                                    <i class="fas fa-chart-simple fa-2x text-danger"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mb-1">pib.xlsx</h5>
-                                    <p class="mb-1">Indicadores económicos regionales, producto interno bruto por localidad, ingreso per cápita y correlación con actividad emprendedora.</p>
-                                    <small class="text-muted">
-                                        <i class="fas fa-file-excel me-1"></i>Formato: Excel | 
-                                        <i class="fas fa-chart-simple me-1 ms-2"></i>Indicadores: 8 |
-                                        <i class="fas fa-calendar me-1 ms-2"></i>Actualización: Anual
-                                    </small>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="list-group-item border-0 shadow-sm mb-2">
+                                <h5><i class="fas fa-microchip text-secondary me-2"></i>dim_tecnologia</h5>
+                                <p class="small mb-1">Nivel de digitalización y presencia web</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="list-group-item border-0 shadow-sm mb-2">
+                                <h5><i class="fas fa-calendar-alt text-primary me-2"></i>dim_tiempo</h5>
+                                <p class="small mb-1">Análisis temporal por año, mes y trimestre</p>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Nota adicional -->
-                    <div class="alert alert-info mt-4 border-0 shadow-sm">
+                    <div class="alert alert-info mt-4">
                         <i class="fas fa-info-circle me-2"></i>
-                        <strong>Calidad de Datos:</strong> Todos los datasets han sido procesados y validados para garantizar su integridad. Se aplicaron técnicas de limpieza, normalización y transformación para el análisis.
-                    </div>
-                    
-                    <div class="alert alert-secondary mt-3 border-0 shadow-sm">
-                        <i class="fas fa-github me-2"></i>
-                        <strong>Repositorio de Datos:</strong> Los archivos originales están disponibles en el repositorio del proyecto en la carpeta <code>/data</code>.
+                        <strong>Relaciones:</strong> La tabla de hechos se relaciona con cada dimensión en esquema estrella (N:1), permitiendo consultas multidimensionales.
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<style>
-    .hover-scale {
-        transition: all 0.3s ease;
-    }
-    
-    .list-group-item:hover {
-        transform: translateX(5px);
-        background-color: #f8f9fa;
-    }
-</style>
 {% endblock %}
