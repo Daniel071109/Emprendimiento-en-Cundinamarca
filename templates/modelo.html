@@ -27,22 +27,18 @@
                     <!-- TABLA DE HECHOS (CENTRO)                    -->
                     <!-- ========================================== -->
                     <h4 class="mt-4"><i class="fas fa-database me-2 text-primary"></i>Tabla de Hechos: stg_empresas</h4>
-                    <p>Tabla central que almacena las métricas cuantitativas del emprendimiento.</p>
+                    <p>Tabla central que almacena las métricas cuantitativas del emprendimiento por localidad y sector.</p>
                     <div class="table-responsive mb-4">
                         <table class="table table-bordered table-hover">
                             <thead class="table-dark">
                                 <tr><th>Campo</th><th>Tipo</th><th>Descripción</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td>id_empresa</td><td>PK</td><td>Identificador único de la empresa</td></tr>
-                                <tr><td>id_tiempo</td><td>FK</td><td>Relación con dimensión temporal</td></tr>
-                                <tr><td>id_mercado</td><td>FK</td><td>Relación con dimensión de mercado</td></tr>
-                                <tr><td>id_pib</td><td>FK</td><td>Relación con dimensión económica (PIB)</td></tr>
-                                <tr><td>id_emprendimiento</td><td>FK</td><td>Relación con dimensión de emprendimiento</td></tr>
-                                <tr><td>empresas_vigentes</td><td>Integer</td><td>Número de empresas con matrícula vigente</td></tr>
-                                <tr><td>empresas_creadas</td><td>Integer</td><td>Número de empresas creadas en el año corrido</td></tr>
-                                <tr><td>empresas_canceladas</td><td>Integer</td><td>Número de empresas canceladas en el año corrido</td></tr>
-                                <tr><td>establecimientos_vigentes</td><td>Integer</td><td>Número de establecimientos con matrícula vigente</td></tr>
+                                <tr><td>Localidad</td><td>String</td><td>Nombre de la localidad (Suba, Kennedy, Engativá, etc.)</td></tr>
+                                <tr><td>Gran rama</td><td>String</td><td>Sector económico (Comercio, Servicios, Industria, etc.)</td></tr>
+                                <tr><td>Número de empresas con matrícula vigente</td><td>Integer</td><td>Empresas activas actualmente</td></tr>
+                                <tr><td>Número de empresas creadas (año corrido)</td><td>Integer</td><td>Nuevas empresas registradas en el año</td></tr>
+                                <tr><td>Número de empresas canceladas (año corrido)</td><td>Integer</td><td>Empresas que cerraron en el año</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -58,28 +54,22 @@
                         <div class="col-md-6">
                             <div class="card border-0 shadow-sm h-100">
                                 <div class="card-body">
-                                    <h5><i class="fas fa-map-marker-alt text-success me-2"></i>stg_localidad</h5>
+                                    <h5><i class="fas fa-map-marker-alt text-success me-2"></i>Dimensión Territorial</h5>
                                     <hr>
-                                    <p class="small mb-1"><strong>id_localidad (PK)</strong> - Identificador único de localidad</p>
-                                    <p class="small mb-1"><strong>codigo_localidad</strong> - Código DANE de la localidad</p>
-                                    <p class="small mb-1"><strong>nombre_localidad</strong> - Nombre de la localidad (Suba, Kennedy, etc.)</p>
-                                    <p class="small mb-1"><strong>sexo</strong> - Masculino / Femenino / Indeterminado</p>
-                                    <p class="small mb-1"><strong>grupo_edad</strong> - Rango etario (18-28, 29-40, etc.)</p>
-                                    <p class="small mb-0"><strong>poblacion</strong> - Cantidad de habitantes por categoría</p>
+                                    <p class="small mb-1"><strong>Localidad</strong> - Suba, Kennedy, Engativá, Bosa, Ciudad Bolívar, etc.</p>
+                                    <p class="small mb-0"><strong>Atributos relacionados:</strong> población por sexo, grupo etario, estrato socioeconómico</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Dimensión 2: Sector -->
+                        <!-- Dimensión 2: Sector Económico -->
                         <div class="col-md-6">
                             <div class="card border-0 shadow-sm h-100">
                                 <div class="card-body">
-                                    <h5><i class="fas fa-industry text-warning me-2"></i>stg_sector</h5>
+                                    <h5><i class="fas fa-industry text-warning me-2"></i>Dimensión Sectorial</h5>
                                     <hr>
-                                    <p class="small mb-1"><strong>id_sector (PK)</strong> - Identificador único del sector</p>
-                                    <p class="small mb-1"><strong>sector</strong> - Sector económico (Comercio, Servicios, Industria)</p>
-                                    <p class="small mb-1"><strong>tipo_actividad</strong> - Clasificación específica de la actividad económica</p>
-                                    <p class="small mb-0"><strong>nivel_innovacion</strong> - Nivel de innovación del sector (Alto/Medio/Bajo)</p>
+                                    <p class="small mb-1"><strong>Gran rama</strong> - Comercio, Servicios, Industria, Agropecuario</p>
+                                    <p class="small mb-0"><strong>Atributos relacionados:</strong> tipo_actividad, nivel_innovacion</p>
                                 </div>
                             </div>
                         </div>
@@ -88,117 +78,112 @@
                         <div class="col-md-6">
                             <div class="card border-0 shadow-sm h-100">
                                 <div class="card-body">
-                                    <h5><i class="fas fa-calendar-alt text-primary me-2"></i>dim_tiempo</h5>
+                                    <h5><i class="fas fa-calendar-alt text-primary me-2"></i>Dimensión Temporal</h5>
                                     <hr>
-                                    <p class="small mb-1"><strong>id_tiempo (PK)</strong> - Identificador del período temporal</p>
-                                    <p class="small mb-1"><strong>anio</strong> - Año del registro</p>
-                                    <p class="small mb-1"><strong>mes</strong> - Mes específico</p>
-                                    <p class="small mb-1"><strong>trimestre</strong> - Trimestre del año</p>
-                                    <p class="small mb-0"><strong>fecha</strong> - Fecha completa del registro</p>
+                                    <p class="small mb-1"><strong>Año corrido</strong> - Período de análisis actual</p>
+                                    <p class="small mb-0"><strong>Atributos relacionados:</strong> año, mes, trimestre, fecha</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Dimensión 4: Mercado -->
+                        <!-- Dimensión 4: Demográfica -->
                         <div class="col-md-6">
                             <div class="card border-0 shadow-sm h-100">
                                 <div class="card-body">
-                                    <h5><i class="fas fa-chart-line text-info me-2"></i>dim_mercado</h5>
+                                    <h5><i class="fas fa-venus-mars text-info me-2"></i>Dimensión Demográfica</h5>
                                     <hr>
-                                    <p class="small mb-1"><strong>id_mercado (PK)</strong> - Identificador del mercado</p>
-                                    <p class="small mb-1"><strong>tipo_mercado</strong> - Local, Regional, Nacional, Internacional</p>
-                                    <p class="small mb-1"><strong>competencia</strong> - Nivel de competencia en el sector</p>
-                                    <p class="small mb-0"><strong>demanda</strong> - Nivel de demanda del producto/servicio</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Dimensión 5: PIB -->
-                        <div class="col-md-6">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="card-body">
-                                    <h5><i class="fas fa-chart-simple text-danger me-2"></i>dim_pib</h5>
-                                    <hr>
-                                    <p class="small mb-1"><strong>id_pib (PK)</strong> - Identificador del indicador económico</p>
-                                    <p class="small mb-1"><strong>localidad</strong> - Localidad asociada al PIB</p>
-                                    <p class="small mb-1"><strong>pib_per_capita</strong> - Producto Interno Bruto per cápita</p>
-                                    <p class="small mb-0"><strong>crecimiento_economico</strong> - Tasa de crecimiento anual</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Dimensión 6: Emprendimiento -->
-                        <div class="col-md-6">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="card-body">
-                                    <h5><i class="fas fa-chart-line text-secondary me-2"></i>dim_emprendimiento</h5>
-                                    <hr>
-                                    <p class="small mb-1"><strong>id_emprendimiento (PK)</strong> - Identificador único del emprendimiento</p>
-                                    <p class="small mb-1"><strong>nombre_entidad</strong> - Razón social de la empresa</p>
-                                    <p class="small mb-1"><strong>tamanio</strong> - Micro, Pequeña, Mediana, Grande</p>
-                                    <p class="small mb-0"><strong>antiguedad</strong> - Años de operación</p>
+                                    <p class="small mb-1"><strong>Sexo</strong> - Masculino / Femenino / Indeterminado</p>
+                                    <p class="small mb-0"><strong>Grupo edad</strong> - Rango etario de la población</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- ========================================== -->
-                    <!-- EJEMPLO DE CONSULTA (CON TU SQL REAL)       -->
+                    <!-- CONSULTA SQL REAL (CORREGIDA Y FUNCIONAL)   -->
                     <!-- ========================================== -->
-                    <h4 class="mt-5"><i class="fas fa-code me-2 text-warning"></i>Ejemplo de Consulta - Top Localidades</h4>
-                    <div class="border rounded p-3 bg-dark text-white">
-                        <pre class="mb-0" style="background: none; color: #e2e8f0; overflow-x: auto;">
-<span style="color: #fbbf24;">SELECT</span> 
-    localidad,
-    <span style="color: #7aa2f7;">SUM([Numero de empresas con matrícula vigente])</span> AS empresas_vigentes,
-    <span style="color: #7aa2f7;">SUM([Numero de empresas creadas (año corrido)])</span> AS empresas_creadas,
-    <span style="color: #7aa2f7;">SUM([Numero de empresas canceladas (año corrido)])</span> AS empresas_canceladas
-<span style="color: #fbbf24;">FROM</span> stg_empresas
-<span style="color: #fbbf24;">GROUP BY</span> localidad
-<span style="color: #fbbf24;">ORDER BY</span> empresas_vigentes <span style="color: #fbbf24;">DESC</span>;
-                        </pre>
-                    </div>
-                    <p class="text-muted mt-2 small">Esta consulta permite identificar las localidades con mayor número de empresas vigentes, creadas y canceladas.</p>
+                    <h4 class="mt-5"><i class="fas fa-code me-2 text-warning"></i>Consulta Multidimensional - Top Localidades por Sector</h4>
+                    <p class="text-muted mb-2">Esta consulta analiza el ecosistema emprendedor por localidad y sector económico.</p>
                     
-                    <!-- ========================================== -->
-                    <!-- EJEMPLO DE CONSULTA 2 - ANÁLISIS COMPLETO   -->
-                    <!-- ========================================== -->
-                    <h4 class="mt-4"><i class="fas fa-chart-line me-2 text-info"></i>Consulta Multidimensional Completa</h4>
-                    <div class="border rounded p-3 bg-dark text-white">
-                        <pre class="mb-0" style="background: none; color: #e2e8f0; overflow-x: auto;">
+                    <div class="border rounded p-3 bg-dark text-white" style="overflow-x: auto;">
+                        <pre class="mb-0" style="background: none; color: #e2e8f0; font-family: 'Consolas', monospace; font-size: 13px;">
+<span style="color: #7aa2f7;">USE DW_Emprendimiento;</span>
+<span style="color: #7aa2f7;">GO</span>
+
 <span style="color: #fbbf24;">SELECT</span> 
-    l.nombre_localidad,
-    s.sector,
-    <span style="color: #7aa2f7;">SUM</span>(e.empresas_vigentes) AS total_vigentes,
-    <span style="color: #7aa2f7;">SUM</span>(e.empresas_creadas) AS total_creadas,
-    <span style="color: #7aa2f7;">SUM</span>(e.empresas_canceladas) AS total_canceladas,
-    <span style="color: #7aa2f7;">ROUND</span>(<span style="color: #7aa2f7;">SUM</span>(e.empresas_vigentes) * 100.0 / 
-          <span style="color: #7aa2f7;">SUM</span>(<span style="color: #7aa2f7;">SUM</span>(e.empresas_vigentes)) <span style="color: #fbbf24;">OVER</span>(), 2) AS porcentaje_participacion
+    e.Localidad,
+    e.<span style="color: #7aa2f7;">[Gran rama]</span> <span style="color: #fbbf24;">AS</span> sector,
+    <span style="color: #7aa2f7;">SUM</span>(e.<span style="color: #7aa2f7;">[Numero de empresas con matrícula vigente]</span>) 
+        <span style="color: #fbbf24;">AS</span> total_vigentes,
+    <span style="color: #7aa2f7;">SUM</span>(e.<span style="color: #7aa2f7;">[Numero de empresas creadas (año corrido)]</span>) 
+        <span style="color: #fbbf24;">AS</span> total_creadas,
+    <span style="color: #7aa2f7;">SUM</span>(e.<span style="color: #7aa2f7;">[Numero de empresas canceladas (año corrido)]</span>) 
+        <span style="color: #fbbf24;">AS</span> total_canceladas,
+    <span style="color: #7aa2f7;">ROUND</span>(
+        <span style="color: #7aa2f7;">SUM</span>(e.<span style="color: #7aa2f7;">[Numero de empresas con matrícula vigente]</span>) * 100.0 /
+        <span style="color: #7aa2f7;">SUM</span>(<span style="color: #7aa2f7;">SUM</span>(e.<span style="color: #7aa2f7;">[Numero de empresas con matrícula vigente]</span>)) <span style="color: #fbbf24;">OVER</span>(),
+        2
+    ) <span style="color: #fbbf24;">AS</span> porcentaje_participacion
+
 <span style="color: #fbbf24;">FROM</span> stg_empresas e
-<span style="color: #fbbf24;">JOIN</span> stg_localidad l <span style="color: #fbbf24;">ON</span> e.id_localidad = l.id_localidad
-<span style="color: #fbbf24;">JOIN</span> stg_sector s <span style="color: #fbbf24;">ON</span> e.id_sector = s.id_sector
-<span style="color: #fbbf24;">WHERE</span> e.empresas_vigentes > 0
-<span style="color: #fbbf24;">GROUP BY</span> l.nombre_localidad, s.sector
+
+<span style="color: #fbbf24;">WHERE</span> e.<span style="color: #7aa2f7;">[Numero de empresas con matrícula vigente]</span> > 0
+
+<span style="color: #fbbf24;">GROUP BY</span> 
+    e.Localidad,
+    e.<span style="color: #7aa2f7;">[Gran rama]</span>
+
 <span style="color: #fbbf24;">ORDER BY</span> total_vigentes <span style="color: #fbbf24;">DESC</span>;
+<span style="color: #7aa2f7;">GO</span>
                         </pre>
                     </div>
-                    <p class="text-muted mt-2 small">Esta consulta combina las tres tablas (empresas, localidad, sector) para obtener un análisis completo del ecosistema emprendedor.</p>
+                    
+                    <!-- ========================================== -->
+                    <!-- EXPLICACIÓN DE LA CONSULTA                  -->
+                    <!-- ========================================== -->
+                    <h4 class="mt-4"><i class="fas fa-chart-line me-2 text-info"></i>Explicación de la Consulta</h4>
+                    <div class="border rounded p-3 bg-light">
+                        <ul class="mb-0">
+                            <li><strong>Localidad</strong> - Agrupa los resultados por cada localidad de Cundinamarca</li>
+                            <li><strong>Gran rama</strong> - Clasifica por sector económico (Comercio, Servicios, Industria)</li>
+                            <li><strong>total_vigentes</strong> - Suma de empresas activas por grupo</li>
+                            <li><strong>total_creadas</strong> - Nuevas empresas registradas en el año corrido</li>
+                            <li><strong>total_canceladas</strong> - Empresas que cerraron en el período</li>
+                            <li><strong>porcentaje_participacion</strong> - Contribución relativa de cada grupo al total de empresas vigentes</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- ========================================== -->
+                    <!-- EJEMPLO DE RESULTADO ESPERADO               -->
+                    <!-- ========================================== -->
+                    <h4 class="mt-4"><i class="fas fa-table me-2 text-success"></i>Ejemplo de Resultado</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-sm">
+                            <thead class="table-dark">
+                                <tr><th>Localidad</th><th>Sector</th><th>total_vigentes</th><th>total_creadas</th><th>total_canceladas</th><th>% participación</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Suba</td><td>Comercio</td><td>3,200</td><td>450</td><td>80</td><td class="text-success">12.5%</td></tr>
+                                <tr><td>Kennedy</td><td>Comercio</td><td>2,800</td><td>400</td><td>75</td><td class="text-success">10.9%</td></tr>
+                                <tr><td>Engativá</td><td>Servicios</td><td>2,100</td><td>320</td><td>60</td><td class="text-success">8.2%</td></tr>
+                                <tr><td>Suba</td><td>Servicios</td><td>1,800</td><td>280</td><td>55</td><td class="text-success">7.0%</td></tr>
+                                <tr><td>Kennedy</td><td>Industria</td><td>1,200</td><td>180</td><td>40</td><td class="text-success">4.7%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                     
                     <!-- ========================================== -->
                     <!-- RELACIONES DEL ESQUEMA                      -->
                     <!-- ========================================== -->
-                    <h4 class="mt-4"><i class="fas fa-link me-2 text-success"></i>Relaciones del Esquema</h4>
+                    <h4 class="mt-4"><i class="fas fa-link me-2 text-secondary"></i>Relaciones del Esquema</h4>
                     <div class="border rounded p-3 bg-light">
                         <p class="mb-2">El modelo sigue un <strong>esquema estrella</strong> donde:</p>
                         <ul class="mb-0">
                             <li>La tabla de hechos <strong>stg_empresas</strong> está en el centro</li>
-                            <li>Se relaciona con <strong>stg_localidad</strong> (dimensión territorial)</li>
-                            <li>Se relaciona con <strong>stg_sector</strong> (dimensión económica)</li>
-                            <li>Se relaciona con <strong>dim_tiempo</strong> (dimensión temporal)</li>
-                            <li>Se relaciona con <strong>dim_mercado</strong> (dimensión de mercado)</li>
-                            <li>Se relaciona con <strong>dim_pib</strong> (dimensión económica)</li>
-                            <li>Se relaciona con <strong>dim_emprendimiento</strong> (dimensión descriptiva)</li>
-                            <li>Cardinalidad: <strong>N:1</strong> (muchos hechos apuntan a una dimensión)</li>
+                            <li>Contiene métricas: empresas vigentes, creadas y canceladas</li>
+                            <li>Se analiza por <strong>Localidad</strong> (dimensión territorial)</li>
+                            <li>Se analiza por <strong>Gran rama</strong> (dimensión sectorial)</li>
+                            <li>Permite calcular <strong>tasa de sostenibilidad</strong> = vigentes / (creadas - canceladas)</li>
                         </ul>
                     </div>
                     
@@ -207,7 +192,7 @@
                     <!-- ========================================== -->
                     <div class="alert alert-info mt-4">
                         <i class="fas fa-info-circle me-2"></i>
-                        <strong>Esquema Estrella:</strong> Este modelo optimiza las consultas analíticas y facilita la minería de datos para identificar patrones de sostenibilidad empresarial.
+                        <strong>Optimización:</strong> Esta consulta está optimizada para análisis OLAP y puede ejecutarse directamente en SQL Server Management Studio (SSMS) o Azure Data Studio.
                     </div>
                 </div>
             </div>
@@ -233,6 +218,9 @@
         overflow-x: auto;
         white-space: pre-wrap;
         word-wrap: break-word;
+    }
+    .table td {
+        vertical-align: middle;
     }
 </style>
 {% endblock %}
