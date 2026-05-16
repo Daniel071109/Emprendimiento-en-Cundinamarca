@@ -24,44 +24,48 @@
                     </div>
                     
                     <!-- ========================================== -->
-                    <!-- TABLA DE HECHOS (CENTRO DEL ESQUEMA)        -->
+                    <!-- TABLA DE HECHOS (CENTRO)                    -->
                     <!-- ========================================== -->
-                    <h4 class="mt-4"><i class="fas fa-database me-2 text-primary"></i>Tabla de Hechos: hecho_sostenibilidad</h4>
-                    <p>Es la tabla central del modelo. Contiene las métricas cuantitativas que se analizan en relación con las dimensiones.</p>
+                    <h4 class="mt-4"><i class="fas fa-database me-2 text-primary"></i>Tabla de Hechos: stg_empresas</h4>
+                    <p>Tabla central que almacena las métricas cuantitativas del emprendimiento.</p>
                     <div class="table-responsive mb-4">
                         <table class="table table-bordered table-hover">
                             <thead class="table-dark">
                                 <tr><th>Campo</th><th>Tipo</th><th>Descripción</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td>id_hecho</td><td>PK (Clave Primaria)</td><td>Identificador único de cada registro en la tabla de hechos</td></tr>
-                                <tr><td>cantidad_emprendimientos</td><td>Integer</td><td>Número total de emprendimientos registrados</td></tr>
-                                <tr><td>tasa_sostenibilidad</td><td>Float</td><td>Porcentaje de emprendimientos que perduran en el tiempo (actual: 61.45%)</td></tr>
-                                <tr><td>nivel_competitividad</td><td>Float</td><td>Índice de competitividad del sector o localidad</td></tr>
-                                <tr><td>nivel_informalidad</td><td>Float</td><td>Porcentaje de informalidad empresarial en la región</td></tr>
+                                <tr><td>id_empresa</td><td>PK</td><td>Identificador único de la empresa</td></tr>
+                                <tr><td>id_tiempo</td><td>FK</td><td>Relación con dimensión temporal</td></tr>
+                                <tr><td>id_mercado</td><td>FK</td><td>Relación con dimensión de mercado</td></tr>
+                                <tr><td>id_pib</td><td>FK</td><td>Relación con dimensión económica (PIB)</td></tr>
+                                <tr><td>id_emprendimiento</td><td>FK</td><td>Relación con dimensión de emprendimiento</td></tr>
+                                <tr><td>empresas_vigentes</td><td>Integer</td><td>Número de empresas con matrícula vigente</td></tr>
+                                <tr><td>empresas_creadas</td><td>Integer</td><td>Número de empresas creadas en el año corrido</td></tr>
+                                <tr><td>empresas_canceladas</td><td>Integer</td><td>Número de empresas canceladas en el año corrido</td></tr>
+                                <tr><td>establecimientos_vigentes</td><td>Integer</td><td>Número de establecimientos con matrícula vigente</td></tr>
                             </tbody>
                         </table>
                     </div>
                     
                     <!-- ========================================== -->
-                    <!-- DIMENSIONES (ALREDEDOR DEL ESQUEMA)         -->
+                    <!-- DIMENSIONES                                 -->
                     <!-- ========================================== -->
                     <h4 class="mt-4"><i class="fas fa-tags me-2 text-success"></i>Dimensiones del Modelo</h4>
-                    <p>Las dimensiones representan las diferentes perspectivas desde las cuales se analiza la tabla de hechos. Cada una contiene atributos descriptivos.</p>
+                    <p>Las dimensiones representan las diferentes perspectivas desde las cuales se analiza la tabla de hechos.</p>
                     
                     <div class="row g-4 mt-2">
                         <!-- Dimensión 1: Localidad -->
                         <div class="col-md-6">
                             <div class="card border-0 shadow-sm h-100">
                                 <div class="card-body">
-                                    <h5><i class="fas fa-map-marker-alt text-success me-2"></i>dim_localidad</h5>
+                                    <h5><i class="fas fa-map-marker-alt text-success me-2"></i>stg_localidad</h5>
                                     <hr>
                                     <p class="small mb-1"><strong>id_localidad (PK)</strong> - Identificador único de localidad</p>
-                                    <p class="small mb-1"><strong>localidad</strong> - Nombre de la localidad</p>
-                                    <p class="small mb-1"><strong>cantidad_emprendimientos</strong> - Total de emprendimientos por localidad</p>
-                                    <p class="small mb-1"><strong>nivel_competitividad</strong> - Índice competitivo territorial</p>
-                                    <p class="small mb-1"><strong>nivel_tecnologia</strong> - Nivel de adopción tecnológica</p>
-                                    <p class="small mb-0"><strong>nivel_educacion</strong> - Índice educativo de la zona</p>
+                                    <p class="small mb-1"><strong>codigo_localidad</strong> - Código DANE de la localidad</p>
+                                    <p class="small mb-1"><strong>nombre_localidad</strong> - Nombre de la localidad (Suba, Kennedy, etc.)</p>
+                                    <p class="small mb-1"><strong>sexo</strong> - Masculino / Femenino / Indeterminado</p>
+                                    <p class="small mb-1"><strong>grupo_edad</strong> - Rango etario (18-28, 29-40, etc.)</p>
+                                    <p class="small mb-0"><strong>poblacion</strong> - Cantidad de habitantes por categoría</p>
                                 </div>
                             </div>
                         </div>
@@ -70,55 +74,55 @@
                         <div class="col-md-6">
                             <div class="card border-0 shadow-sm h-100">
                                 <div class="card-body">
-                                    <h5><i class="fas fa-industry text-warning me-2"></i>dim_sector</h5>
+                                    <h5><i class="fas fa-industry text-warning me-2"></i>stg_sector</h5>
                                     <hr>
                                     <p class="small mb-1"><strong>id_sector (PK)</strong> - Identificador único del sector</p>
-                                    <p class="small mb-1"><strong>sector</strong> - Nombre del sector económico (Comercio, Servicios, Industria)</p>
-                                    <p class="small mb-1"><strong>tipo_actividad</strong> - Clasificación específica de la actividad</p>
-                                    <p class="small mb-0"><strong>nivel_innovacion</strong> - Nivel de innovación del sector</p>
+                                    <p class="small mb-1"><strong>sector</strong> - Sector económico (Comercio, Servicios, Industria)</p>
+                                    <p class="small mb-1"><strong>tipo_actividad</strong> - Clasificación específica de la actividad económica</p>
+                                    <p class="small mb-0"><strong>nivel_innovacion</strong> - Nivel de innovación del sector (Alto/Medio/Bajo)</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Dimensión 3: Financiamiento -->
-                        <div class="col-md-6">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="card-body">
-                                    <h5><i class="fas fa-money-bill-wave text-danger me-2"></i>dim_financiamiento</h5>
-                                    <hr>
-                                    <p class="small mb-1"><strong>id_financiamiento (PK)</strong> - Identificador de la fuente de financiamiento</p>
-                                    <p class="small mb-1"><strong>tipo_financiamiento</strong> - Crédito, capital propio, inversión</p>
-                                    <p class="small mb-1"><strong>acceso_credito</strong> - Nivel de acceso a crédito (Alto/Medio/Bajo)</p>
-                                    <p class="small mb-0"><strong>apoyo_gubernamental</strong> - Nivel de apoyo del gobierno</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Dimensión 4: Tecnología -->
-                        <div class="col-md-6">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="card-body">
-                                    <h5><i class="fas fa-microchip text-secondary me-2"></i>dim_tecnologia</h5>
-                                    <hr>
-                                    <p class="small mb-1"><strong>id_tecnologia (PK)</strong> - Identificador del nivel tecnológico</p>
-                                    <p class="small mb-1"><strong>nivel_digitalizacion</strong> - Grado de digitalización del emprendimiento</p>
-                                    <p class="small mb-1"><strong>uso_tecnologia</strong> - Frecuencia de uso de herramientas tecnológicas</p>
-                                    <p class="small mb-0"><strong>presencia_web</strong> - Si tiene sitio web o redes sociales activas</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Dimensión 5: Tiempo -->
+                        <!-- Dimensión 3: Tiempo -->
                         <div class="col-md-6">
                             <div class="card border-0 shadow-sm h-100">
                                 <div class="card-body">
                                     <h5><i class="fas fa-calendar-alt text-primary me-2"></i>dim_tiempo</h5>
                                     <hr>
                                     <p class="small mb-1"><strong>id_tiempo (PK)</strong> - Identificador del período temporal</p>
-                                    <p class="small mb-1"><strong>anio</strong> - Año del registro (2022, 2023, 2024)</p>
-                                    <p class="small mb-1"><strong>mes</strong> - Mes específico (1-12)</p>
-                                    <p class="small mb-1"><strong>trimestre</strong> - Trimestre del año (Q1, Q2, Q3, Q4)</p>
+                                    <p class="small mb-1"><strong>anio</strong> - Año del registro</p>
+                                    <p class="small mb-1"><strong>mes</strong> - Mes específico</p>
+                                    <p class="small mb-1"><strong>trimestre</strong> - Trimestre del año</p>
                                     <p class="small mb-0"><strong>fecha</strong> - Fecha completa del registro</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dimensión 4: Mercado -->
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-chart-line text-info me-2"></i>dim_mercado</h5>
+                                    <hr>
+                                    <p class="small mb-1"><strong>id_mercado (PK)</strong> - Identificador del mercado</p>
+                                    <p class="small mb-1"><strong>tipo_mercado</strong> - Local, Regional, Nacional, Internacional</p>
+                                    <p class="small mb-1"><strong>competencia</strong> - Nivel de competencia en el sector</p>
+                                    <p class="small mb-0"><strong>demanda</strong> - Nivel de demanda del producto/servicio</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dimensión 5: PIB -->
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-chart-simple text-danger me-2"></i>dim_pib</h5>
+                                    <hr>
+                                    <p class="small mb-1"><strong>id_pib (PK)</strong> - Identificador del indicador económico</p>
+                                    <p class="small mb-1"><strong>localidad</strong> - Localidad asociada al PIB</p>
+                                    <p class="small mb-1"><strong>pib_per_capita</strong> - Producto Interno Bruto per cápita</p>
+                                    <p class="small mb-0"><strong>crecimiento_economico</strong> - Tasa de crecimiento anual</p>
                                 </div>
                             </div>
                         </div>
@@ -127,58 +131,83 @@
                         <div class="col-md-6">
                             <div class="card border-0 shadow-sm h-100">
                                 <div class="card-body">
-                                    <h5><i class="fas fa-chart-line text-info me-2"></i>dim_emprendimiento</h5>
+                                    <h5><i class="fas fa-chart-line text-secondary me-2"></i>dim_emprendimiento</h5>
                                     <hr>
                                     <p class="small mb-1"><strong>id_emprendimiento (PK)</strong> - Identificador único del emprendimiento</p>
-                                    <p class="small mb-1"><strong>nombre_entidad</strong> - Nombre o razón social de la empresa</p>
-                                    <p class="small mb-1"><strong>direccion</strong> - Ubicación física del emprendimiento</p>
-                                    <p class="small mb-1"><strong>sitio_web</strong> - URL del sitio web si existe</p>
-                                    <p class="small mb-0"><strong>horario</strong> - Horario de atención comercial</p>
+                                    <p class="small mb-1"><strong>nombre_entidad</strong> - Razón social de la empresa</p>
+                                    <p class="small mb-1"><strong>tamanio</strong> - Micro, Pequeña, Mediana, Grande</p>
+                                    <p class="small mb-0"><strong>antiguedad</strong> - Años de operación</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- ========================================== -->
-                    <!-- RELACIONES Y CARDINALIDAD                   -->
+                    <!-- EJEMPLO DE CONSULTA (CON TU SQL REAL)       -->
                     <!-- ========================================== -->
-                    <h4 class="mt-5"><i class="fas fa-link me-2 text-success"></i>Relaciones del Esquema</h4>
+                    <h4 class="mt-5"><i class="fas fa-code me-2 text-warning"></i>Ejemplo de Consulta - Top Localidades</h4>
+                    <div class="border rounded p-3 bg-dark text-white">
+                        <pre class="mb-0" style="background: none; color: #e2e8f0; overflow-x: auto;">
+<span style="color: #fbbf24;">SELECT</span> 
+    localidad,
+    <span style="color: #7aa2f7;">SUM([Numero de empresas con matrícula vigente])</span> AS empresas_vigentes,
+    <span style="color: #7aa2f7;">SUM([Numero de empresas creadas (año corrido)])</span> AS empresas_creadas,
+    <span style="color: #7aa2f7;">SUM([Numero de empresas canceladas (año corrido)])</span> AS empresas_canceladas
+<span style="color: #fbbf24;">FROM</span> stg_empresas
+<span style="color: #fbbf24;">GROUP BY</span> localidad
+<span style="color: #fbbf24;">ORDER BY</span> empresas_vigentes <span style="color: #fbbf24;">DESC</span>;
+                        </pre>
+                    </div>
+                    <p class="text-muted mt-2 small">Esta consulta permite identificar las localidades con mayor número de empresas vigentes, creadas y canceladas.</p>
+                    
+                    <!-- ========================================== -->
+                    <!-- EJEMPLO DE CONSULTA 2 - ANÁLISIS COMPLETO   -->
+                    <!-- ========================================== -->
+                    <h4 class="mt-4"><i class="fas fa-chart-line me-2 text-info"></i>Consulta Multidimensional Completa</h4>
+                    <div class="border rounded p-3 bg-dark text-white">
+                        <pre class="mb-0" style="background: none; color: #e2e8f0; overflow-x: auto;">
+<span style="color: #fbbf24;">SELECT</span> 
+    l.nombre_localidad,
+    s.sector,
+    <span style="color: #7aa2f7;">SUM</span>(e.empresas_vigentes) AS total_vigentes,
+    <span style="color: #7aa2f7;">SUM</span>(e.empresas_creadas) AS total_creadas,
+    <span style="color: #7aa2f7;">SUM</span>(e.empresas_canceladas) AS total_canceladas,
+    <span style="color: #7aa2f7;">ROUND</span>(<span style="color: #7aa2f7;">SUM</span>(e.empresas_vigentes) * 100.0 / 
+          <span style="color: #7aa2f7;">SUM</span>(<span style="color: #7aa2f7;">SUM</span>(e.empresas_vigentes)) <span style="color: #fbbf24;">OVER</span>(), 2) AS porcentaje_participacion
+<span style="color: #fbbf24;">FROM</span> stg_empresas e
+<span style="color: #fbbf24;">JOIN</span> stg_localidad l <span style="color: #fbbf24;">ON</span> e.id_localidad = l.id_localidad
+<span style="color: #fbbf24;">JOIN</span> stg_sector s <span style="color: #fbbf24;">ON</span> e.id_sector = s.id_sector
+<span style="color: #fbbf24;">WHERE</span> e.empresas_vigentes > 0
+<span style="color: #fbbf24;">GROUP BY</span> l.nombre_localidad, s.sector
+<span style="color: #fbbf24;">ORDER BY</span> total_vigentes <span style="color: #fbbf24;">DESC</span>;
+                        </pre>
+                    </div>
+                    <p class="text-muted mt-2 small">Esta consulta combina las tres tablas (empresas, localidad, sector) para obtener un análisis completo del ecosistema emprendedor.</p>
+                    
+                    <!-- ========================================== -->
+                    <!-- RELACIONES DEL ESQUEMA                      -->
+                    <!-- ========================================== -->
+                    <h4 class="mt-4"><i class="fas fa-link me-2 text-success"></i>Relaciones del Esquema</h4>
                     <div class="border rounded p-3 bg-light">
                         <p class="mb-2">El modelo sigue un <strong>esquema estrella</strong> donde:</p>
                         <ul class="mb-0">
-                            <li>La tabla de hechos <strong>hecho_sostenibilidad</strong> está en el centro</li>
-                            <li>Cada dimensión se conecta con la tabla de hechos mediante su clave primaria (PK)</li>
-                            <li>Relación de cardinalidad <strong>N:1</strong> (muchos hechos apuntan a una dimensión)</li>
-                            <li>No hay relaciones directas entre dimensiones (independientes entre sí)</li>
+                            <li>La tabla de hechos <strong>stg_empresas</strong> está en el centro</li>
+                            <li>Se relaciona con <strong>stg_localidad</strong> (dimensión territorial)</li>
+                            <li>Se relaciona con <strong>stg_sector</strong> (dimensión económica)</li>
+                            <li>Se relaciona con <strong>dim_tiempo</strong> (dimensión temporal)</li>
+                            <li>Se relaciona con <strong>dim_mercado</strong> (dimensión de mercado)</li>
+                            <li>Se relaciona con <strong>dim_pib</strong> (dimensión económica)</li>
+                            <li>Se relaciona con <strong>dim_emprendimiento</strong> (dimensión descriptiva)</li>
+                            <li>Cardinalidad: <strong>N:1</strong> (muchos hechos apuntan a una dimensión)</li>
                         </ul>
                     </div>
-                    
-                    <!-- ========================================== -->
-                    <!-- EJEMPLO DE CONSULTA                         -->
-                    <!-- ========================================== -->
-                    <h4 class="mt-4"><i class="fas fa-question-circle me-2 text-warning"></i>Ejemplo de Consulta Multidimensional</h4>
-                    <div class="border rounded p-3 bg-dark text-white">
-                        <pre class="mb-0" style="background: none; color: #e2e8f0;">
-<span style="color: #fbbf24;">SELECT</span> 
-    d.localidad,
-    s.sector,
-    SUM(h.cantidad_emprendimientos) AS total_emprendimientos,
-    AVG(h.tasa_sostenibilidad) AS promedio_sostenibilidad
-<span style="color: #fbbf24;">FROM</span> hecho_sostenibilidad h
-<span style="color: #fbbf24;">JOIN</span> dim_localidad d <span style="color: #fbbf24;">ON</span> h.id_localidad = d.id_localidad
-<span style="color: #fbbf24;">JOIN</span> dim_sector s <span style="color: #fbbf24;">ON</span> h.id_sector = s.id_sector
-<span style="color: #fbbf24;">WHERE</span> d.localidad = <span style="color: #7aa2f7;">'Suba'</span>
-<span style="color: #fbbf24;">GROUP BY</span> d.localidad, s.sector;
-                        </pre>
-                    </div>
-                    <p class="text-muted mt-2 small">Esta consulta permite analizar la cantidad de emprendimientos y su sostenibilidad por sector en una localidad específica.</p>
                     
                     <!-- ========================================== -->
                     <!-- NOTA FINAL                                 -->
                     <!-- ========================================== -->
                     <div class="alert alert-info mt-4">
                         <i class="fas fa-info-circle me-2"></i>
-                        <strong>Esquema Estrella:</strong> Este modelo optimiza las consultas analíticas y facilita la minería de datos al reducir joins y mejorar el rendimiento en consultas OLAP.
+                        <strong>Esquema Estrella:</strong> Este modelo optimiza las consultas analíticas y facilita la minería de datos para identificar patrones de sostenibilidad empresarial.
                     </div>
                 </div>
             </div>

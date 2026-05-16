@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Datasets - Análisis Territorial{% endblock %}
+{% block title %}Datasets - Estructura de Datos{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -10,60 +10,65 @@
                 <div class="card-body p-5">
                     <i class="fas fa-database fa-3x text-primary mb-3"></i>
                     <h1 class="display-5 fw-bold mb-4">Estructura de Datos</h1>
-                    <p class="lead mb-4">Modelo multidimensional para análisis de sostenibilidad del emprendimiento.</p>
+                    <p class="lead mb-4">Tablas del modelo multidimensional para análisis de sostenibilidad del emprendimiento.</p>
                     
+                    <!-- Tabla de Hechos -->
                     <h4 class="mt-4"><i class="fas fa-cube me-2 text-primary"></i>Tabla de Hechos</h4>
                     <div class="list-group mb-4">
                         <div class="list-group-item border-0 shadow-sm mb-2">
-                            <h5>hecho_sostenibilidad</h5>
-                            <p class="mb-1">Almacena las métricas cuantitativas para el análisis de sostenibilidad: cantidad de emprendimientos, tasa de sostenibilidad, nivel de competitividad e informalidad.</p>
-                            <small class="text-muted">Registros: 10,000+ | Actualización: Trimestral</small>
+                            <h5>stg_empresas</h5>
+                            <p class="mb-1">Tabla central que almacena las métricas de negocio: empresas vigentes, creadas, canceladas y establecimientos activos.</p>
+                            <small class="text-muted">
+                                <strong>Campos:</strong> id_empresa, id_tiempo, id_mercado, id_pib, id_emprendimiento, 
+                                empresas_vigentes, empresas_creadas, empresas_canceladas, establecimientos_vigentes
+                            </small>
                         </div>
                     </div>
                     
+                    <!-- Dimensiones -->
                     <h4 class="mt-4"><i class="fas fa-tags me-2 text-success"></i>Tablas de Dimensiones</h4>
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="list-group-item border-0 shadow-sm mb-2">
-                                <h5><i class="fas fa-map-marker-alt text-success me-2"></i>dim_localidad</h5>
-                                <p class="small mb-1">Datos geográficos y competitividad por localidad</p>
+                                <h5><i class="fas fa-map-marker-alt text-success me-2"></i>stg_localidad</h5>
+                                <p class="small mb-0">Datos demográficos: localidad, sexo, grupo edad, población</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="list-group-item border-0 shadow-sm mb-2">
-                                <h5><i class="fas fa-industry text-warning me-2"></i>dim_sector</h5>
-                                <p class="small mb-1">Clasificación por sector económico y nivel de innovación</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="list-group-item border-0 shadow-sm mb-2">
-                                <h5><i class="fas fa-chart-line text-info me-2"></i>dim_emprendimiento</h5>
-                                <p class="small mb-1">Información de entidades emprendedoras</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="list-group-item border-0 shadow-sm mb-2">
-                                <h5><i class="fas fa-money-bill-wave text-danger me-2"></i>dim_financiamiento</h5>
-                                <p class="small mb-1">Acceso a crédito y apoyo gubernamental</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="list-group-item border-0 shadow-sm mb-2">
-                                <h5><i class="fas fa-microchip text-secondary me-2"></i>dim_tecnologia</h5>
-                                <p class="small mb-1">Nivel de digitalización y presencia web</p>
+                                <h5><i class="fas fa-industry text-warning me-2"></i>stg_sector</h5>
+                                <p class="small mb-0">Clasificación económica: sector, tipo_actividad, nivel_innovacion</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="list-group-item border-0 shadow-sm mb-2">
                                 <h5><i class="fas fa-calendar-alt text-primary me-2"></i>dim_tiempo</h5>
-                                <p class="small mb-1">Análisis temporal por año, mes y trimestre</p>
+                                <p class="small mb-0">Análisis temporal: año, mes, trimestre, fecha</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="list-group-item border-0 shadow-sm mb-2">
+                                <h5><i class="fas fa-chart-line text-info me-2"></i>dim_mercado</h5>
+                                <p class="small mb-0">Características de mercado: tipo_mercado, competencia, demanda</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="list-group-item border-0 shadow-sm mb-2">
+                                <h5><i class="fas fa-chart-simple text-danger me-2"></i>dim_pib</h5>
+                                <p class="small mb-0">Indicadores económicos: pib_per_capita, crecimiento_economico</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="list-group-item border-0 shadow-sm mb-2">
+                                <h5><i class="fas fa-chart-line text-secondary me-2"></i>dim_emprendimiento</h5>
+                                <p class="small mb-0">Características de entidades: nombre, tamaño, antigüedad</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="alert alert-info mt-4">
                         <i class="fas fa-info-circle me-2"></i>
-                        <strong>Relaciones:</strong> La tabla de hechos se relaciona con cada dimensión en esquema estrella (N:1), permitiendo consultas multidimensionales.
+                        <strong>Relaciones:</strong> stg_empresas se conecta con todas las dimensiones mediante claves foráneas (id_localidad, id_sector, id_tiempo, id_mercado, id_pib, id_emprendimiento).
                     </div>
                 </div>
             </div>

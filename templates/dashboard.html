@@ -12,27 +12,61 @@
                     <h1 class="display-5 fw-bold mb-2">
                         <i class="fas fa-chart-line me-3"></i>Dashboard de Sostenibilidad
                     </h1>
-                    <p class="lead mb-0">Análisis multidimensional de emprendimiento basado en el modelo estrella</p>
+                    <p class="lead mb-0">Análisis de empresas vigentes, creadas y canceladas por localidad y sector</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- KPIs principales del modelo -->
+    <!-- KPIs principales -->
     <div class="row mb-4 g-3">
         <div class="col-xl-3 col-md-6">
             <div class="card border-0 shadow-lg hover-scale">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="text-muted text-uppercase fw-bold mb-2">Total Empresas</h6>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2">Empresas Vigentes</h6>
                             <h2 class="display-4 fw-bold mb-0">42K</h2>
                         </div>
                         <div class="rounded-circle bg-primary bg-opacity-10 p-3">
-                            <i class="fas fa-chart-line fa-2x text-primary"></i>
+                            <i class="fas fa-building fa-2x text-primary"></i>
                         </div>
                     </div>
-                    <small class="text-muted">cantidad_emprendimientos</small>
+                    <small class="text-muted">empresas_vigentes</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2">Empresas Creadas</h6>
+                            <h2 class="display-4 fw-bold mb-0">5.2K</h2>
+                        </div>
+                        <div class="rounded-circle bg-success bg-opacity-10 p-3">
+                            <i class="fas fa-plus-circle fa-2x text-success"></i>
+                        </div>
+                    </div>
+                    <small class="text-muted">empresas_creadas (año corrido)</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2">Empresas Canceladas</h6>
+                            <h2 class="display-4 fw-bold mb-0">1.8K</h2>
+                        </div>
+                        <div class="rounded-circle bg-danger bg-opacity-10 p-3">
+                            <i class="fas fa-minus-circle fa-2x text-danger"></i>
+                        </div>
+                    </div>
+                    <small class="text-muted">empresas_canceladas (año corrido)</small>
                 </div>
             </div>
         </div>
@@ -45,45 +79,11 @@
                             <h6 class="text-muted text-uppercase fw-bold mb-2">Tasa Sostenibilidad</h6>
                             <h2 class="display-4 fw-bold mb-0">61.5%</h2>
                         </div>
-                        <div class="rounded-circle bg-success bg-opacity-10 p-3">
-                            <i class="fas fa-leaf fa-2x text-success"></i>
+                        <div class="rounded-circle bg-info bg-opacity-10 p-3">
+                            <i class="fas fa-leaf fa-2x text-info"></i>
                         </div>
                     </div>
-                    <small class="text-muted">tasa_sostenibilidad</small>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-xl-3 col-md-6">
-            <div class="card border-0 shadow-lg hover-scale">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-muted text-uppercase fw-bold mb-2">Competitividad</h6>
-                            <h2 class="display-4 fw-bold mb-0">Alta</h2>
-                        </div>
-                        <div class="rounded-circle bg-warning bg-opacity-10 p-3">
-                            <i class="fas fa-trophy fa-2x text-warning"></i>
-                        </div>
-                    </div>
-                    <small class="text-muted">nivel_competitividad</small>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-xl-3 col-md-6">
-            <div class="card border-0 shadow-lg hover-scale">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-muted text-uppercase fw-bold mb-2">Informalidad</h6>
-                            <h2 class="display-4 fw-bold mb-0">14.6%</h2>
-                        </div>
-                        <div class="rounded-circle bg-danger bg-opacity-10 p-3">
-                            <i class="fas fa-chart-line fa-2x text-danger"></i>
-                        </div>
-                    </div>
-                    <small class="text-muted">nivel_informalidad</small>
+                    <small class="text-muted">empresas_vigentes / (creadas - canceladas)</small>
                 </div>
             </div>
         </div>
@@ -113,38 +113,30 @@
         </div>
     </div>
 
-    <!-- Indicadores del modelo -->
+    <!-- Top Localidades (ejemplo de tu consulta) -->
     <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card border-0 shadow-lg hover-scale">
-                <div class="card-body text-center">
-                    <div class="rounded-circle bg-info bg-opacity-10 p-3 d-inline-block mb-3">
-                        <i class="fas fa-chart-pie fa-2x text-info"></i>
-                    </div>
-                    <h5>Distribución por Tamaño</h5>
-                    <p class="text-muted">Microempresa: 71.7% | Pequeña: 16.7% | Mediana: 7.2% | Grande: 4.2%</p>
+        <div class="col-12">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-white border-0 pt-4">
+                    <h4 class="mb-0 fw-bold">
+                        <i class="fas fa-ranking-star me-2 text-warning"></i>Top Localidades por Empresas Vigentes
+                    </h4>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-0 shadow-lg hover-scale">
-                <div class="card-body text-center">
-                    <div class="rounded-circle bg-success bg-opacity-10 p-3 d-inline-block mb-3">
-                        <i class="fas fa-chart-simple fa-2x text-success"></i>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr><th>#</th><th>Localidad</th><th>Empresas Vigentes</th><th>Empresas Creadas</th><th>Empresas Canceladas</th><th>Tasa Supervivencia</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td><strong>Suba</strong></td><td>5,730</td><td>850</td><td>120</td><td class="text-success">92.5%</td></tr>
+                                <tr><td>2</td><td><strong>Kennedy</strong></td><td>5,163</td><td>720</td><td>95</td><td class="text-success">91.8%</td></tr>
+                                <tr><td>3</td><td><strong>Engativá</strong></td><td>3,977</td><td>580</td><td>110</td><td class="text-success">89.2%</td></tr>
+                                <tr><td>4</td><td><strong>Bosa</strong></td><td>3,481</td><td>490</td><td>85</td><td class="text-success">88.4%</td></tr>
+                                <tr><td>5</td><td><strong>Ciudad Bolívar</strong></td><td>3,192</td><td>450</td><td>78</td><td class="text-success">87.6%</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <h5>Distribución por Sexo</h5>
-                    <p class="text-muted">Masculino: 50.5% | Femenino: 34.9% | Indeterminado: 14.6%</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-0 shadow-lg hover-scale">
-                <div class="card-body text-center">
-                    <div class="rounded-circle bg-warning bg-opacity-10 p-3 d-inline-block mb-3">
-                        <i class="fas fa-industry fa-2x text-warning"></i>
-                    </div>
-                    <h5>Top Sectores</h5>
-                    <p class="text-muted">Comercio: 125K | Servicios: 40K | Industria: 25K</p>
                 </div>
             </div>
         </div>
@@ -155,29 +147,20 @@
     .bg-gradient-primary {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
-    
     .hover-scale {
         transition: transform 0.3s ease;
     }
-    
     .hover-scale:hover {
         transform: translateY(-5px);
     }
-    
     .ratio-16x9 {
         aspect-ratio: 16 / 9;
     }
-    
     iframe {
         border: none;
         border-radius: 10px;
         width: 100%;
         height: 100%;
-    }
-    
-    .card {
-        border-radius: 15px !important;
-        overflow: hidden;
     }
 </style>
 {% endblock %}
