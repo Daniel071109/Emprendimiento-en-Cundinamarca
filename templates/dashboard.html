@@ -1,175 +1,91 @@
 {% extends "base.html" %}
 
-{% block title %}Dashboard - Análisis Territorial{% endblock %}
+{% block title %}Dashboard Power BI - Análisis Territorial{% endblock %}
 
 {% block content %}
 <div class="container-fluid px-4">
-    <!-- Header con gradiente -->
+    <!-- Header con gradiente (igual que antes) -->
     <div class="row mb-4">
         <div class="col-12">
             <div class="card bg-gradient-primary text-white shadow-lg border-0">
                 <div class="card-body py-4">
                     <h1 class="display-5 fw-bold mb-2">
-                        <i class="fas fa-chart-line me-3"></i>Dashboard Territorial
+                        <i class="fas fa-chart-line me-3"></i>Dashboard Power BI
                     </h1>
-                    <p class="lead mb-0">Análisis de patrones poblacionales y sostenibilidad del emprendimiento</p>
+                    <p class="lead mb-0">Análisis interactivo de patrones poblacionales y emprendimiento en Cundinamarca</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- KPIs mejorados -->
-    <div class="row mb-4 g-3">
-        <div class="col-xl-3 col-md-6">
-            <div class="card border-0 shadow-lg hover-scale">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-muted text-uppercase fw-bold mb-2">Población Analizada</h6>
-                            <h2 class="display-4 fw-bold mb-0">{{ "{:,.0f}".format(total_poblacion) }}</h2>
-                        </div>
-                        <div class="rounded-circle bg-primary bg-opacity-10 p-3">
-                            <i class="fas fa-users fa-2x text-primary"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-xl-3 col-md-6">
-            <div class="card border-0 shadow-lg hover-scale">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-muted text-uppercase fw-bold mb-2">Localidades</h6>
-                            <h2 class="display-4 fw-bold mb-0">{{ total_localidades }}</h2>
-                        </div>
-                        <div class="rounded-circle bg-success bg-opacity-10 p-3">
-                            <i class="fas fa-map-marker-alt fa-2x text-success"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-xl-3 col-md-6">
-            <div class="card border-0 shadow-lg hover-scale">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-muted text-uppercase fw-bold mb-2">Mayor Potencial</h6>
-                            <h3 class="fw-bold mb-0 text-warning">{{ localidad_top }}</h3>
-                        </div>
-                        <div class="rounded-circle bg-warning bg-opacity-10 p-3">
-                            <i class="fas fa-trophy fa-2x text-warning"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-xl-3 col-md-6">
-            <div class="card border-0 shadow-lg hover-scale">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-muted text-uppercase fw-bold mb-2">Grupo Dominante</h6>
-                            <h3 class="fw-bold mb-0 text-info">{{ grupo_top }}</h3>
-                        </div>
-                        <div class="rounded-circle bg-info bg-opacity-10 p-3">
-                            <i class="fas fa-calendar-alt fa-2x text-info"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Gráficos principales -->
-    <div class="row g-4 mb-4">
-        <div class="col-lg-7">
+    <!-- Dashboard de Power BI incrustado -->
+    <div class="row mb-4">
+        <div class="col-12">
             <div class="card border-0 shadow-lg">
                 <div class="card-header bg-white border-0 pt-4">
                     <h4 class="mb-0 fw-bold">
-                        <i class="fas fa-chart-bar me-2 text-primary"></i>Top Localidades por Potencial
-                    </h4>
-                </div>
-                <div class="card-body">
-                    {{ graph_localidades|safe }}
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-lg-5">
-            <div class="card border-0 shadow-lg">
-                <div class="card-header bg-white border-0 pt-4">
-                    <h4 class="mb-0 fw-bold">
-                        <i class="fas fa-venus-mars me-2 text-success"></i>Distribución por Sexo
-                    </h4>
-                </div>
-                <div class="card-body">
-                    {{ graph_sexo|safe }}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Ranking y grupos etarios -->
-    <div class="row g-4">
-        <div class="col-lg-6">
-            <div class="card border-0 shadow-lg">
-                <div class="card-header bg-white border-0 pt-4">
-                    <h4 class="mb-0 fw-bold">
-                        <i class="fas fa-ranking-star me-2 text-warning"></i>Ranking Territorial
+                        <i class="fas fa-chart-pie me-2 text-primary"></i>Panel Interactivo de Análisis
                     </h4>
                 </div>
                 <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <thead class="bg-light">
-                                <tr>
-                                    <th class="border-0">#</th>
-                                    <th class="border-0">Localidad</th>
-                                    <th class="border-0 text-end">Población</th>
-                                    <th class="border-0">Potencial</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for item in top %}
-                                <tr>
-                                    <td class="fw-bold">
-                                        <span class="badge-ranking">
-                                            {{ loop.index }}
-                                        </span>
-                                    </td>
-                                    <td class="fw-bold">{{ item.Localidad }}</td>
-                                    <td class="text-end">{{ "{:,.0f}".format(item.Poblacion) }}</td>
-                                    <td style="width: 40%;">
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-success" 
-                                                 style="width: {{ (item.Poblacion / top[0].Poblacion * 100) | round }}%">
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                    <div class="ratio ratio-16x9">
+                        <iframe 
+                            title="MDD" 
+                            src="https://app.powerbi.com/reportEmbed?reportId=d05abdf5-ab7e-43b5-93e8-5e9a63d59c68&autoAuth=true&ctid=07da67a0-1f43-4e8c-977f-5f88b6470ee6" 
+                            frameborder="0" 
+                            allowFullScreen="true"
+                            style="border-radius: 10px; width: 100%; height: 100%;">
+                        </iframe>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="col-lg-6">
-            <div class="card border-0 shadow-lg">
-                <div class="card-header bg-white border-0 pt-4">
-                    <h4 class="mb-0 fw-bold">
-                        <i class="fas fa-chart-line me-2 text-info"></i>Segmentación por Edad
-                    </h4>
+    </div>
+
+    <!-- Tarjetas informativas (como las que te gustaban) -->
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body text-center">
+                    <div class="rounded-circle bg-primary bg-opacity-10 p-3 d-inline-block mb-3">
+                        <i class="fas fa-filter fa-2x text-primary"></i>
+                    </div>
+                    <h5>Filtros Interactivos</h5>
+                    <p class="text-muted">Selecciona localidad, rango de edad o período para explorar los datos</p>
                 </div>
-                <div class="card-body">
-                    {{ graph_grupo|safe }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body text-center">
+                    <div class="rounded-circle bg-success bg-opacity-10 p-3 d-inline-block mb-3">
+                        <i class="fas fa-chart-line fa-2x text-success"></i>
+                    </div>
+                    <h5>Visualizaciones Dinámicas</h5>
+                    <p class="text-muted">Gráficos actualizados en tiempo real al interactuar con el dashboard</p>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-lg hover-scale">
+                <div class="card-body text-center">
+                    <div class="rounded-circle bg-warning bg-opacity-10 p-3 d-inline-block mb-3">
+                        <i class="fas fa-download fa-2x text-warning"></i>
+                    </div>
+                    <h5>Exportación de Datos</h5>
+                    <p class="text-muted">Descarga los resultados en Excel o CSV para análisis externos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nota técnica -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="alert alert-info border-0 shadow-sm">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>Dashboard interactivo:</strong> Los datos se actualizan automáticamente desde fuentes oficiales. 
+                Puedes hacer clic en cualquier gráfico para profundizar en el análisis.
             </div>
         </div>
     </div>
@@ -188,49 +104,28 @@
         transform: translateY(-5px);
     }
     
-    .progress {
-        background-color: #e9ecef;
-        border-radius: 10px;
+    .ratio-16x9 {
+        aspect-ratio: 16 / 9;
     }
     
-    .progress-bar {
+    iframe {
+        border: none;
         border-radius: 10px;
-        transition: width 0.6s ease;
     }
     
     .card {
         border-radius: 15px !important;
         overflow: hidden;
     }
-    
-    .table > :not(caption) > * > * {
-        padding: 1rem;
-    }
-    
-    .badge-ranking {
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-        color: white;
-        width: 32px;
-        height: 32px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        font-weight: bold;
-        font-size: 0.9rem;
-    }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const progressBars = document.querySelectorAll('.progress-bar');
-        progressBars.forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0%';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 100);
-        });
+    // Hacer responsive el iframe por si acaso
+    window.addEventListener('resize', function() {
+        const iframe = document.querySelector('iframe');
+        if(iframe) {
+            iframe.style.height = 'auto';
+        }
     });
 </script>
 {% endblock %}
