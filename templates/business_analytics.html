@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}Business Analytics - Análisis de Sostenibilidad{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body p-5">
+                    <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                    <h1 class="display-5 fw-bold mb-4">Business Analytics Aplicado</h1>
+                    <p class="lead mb-4">Análisis de negocio para la sostenibilidad del emprendimiento en Cundinamarca.</p>
+
+                    <!-- ========================================== -->
+                    <!-- QUÉ ES BUSINESS ANALYTICS                   -->
+                    <!-- ========================================== -->
+                    <h4 class="mt-4"><i class="fas fa-brain me-2 text-primary"></i>¿Qué es Business Analytics?</h4>
+                    <p>
+                        Business Analytics (BA) es el proceso de transformar datos en información útil para la toma de decisiones estratégicas. 
+                        Combina estadística, minería de datos, visualización y tecnología para entender el pasado, explicar el presente y 
+                        anticipar el futuro de un negocio o ecosistema empresarial.
+                    </p>
+                    <p>
+                        En el contexto de este proyecto, el BA permite a los formuladores de política pública y a los emprendedores 
+                        responder preguntas como: <em>¿Qué localidades tienen mayor potencial?, ¿Qué sectores están creciendo?, 
+                        ¿Cómo se distribuye el emprendimiento por género?, ¿Cuál es la tasa de sostenibilidad del ecosistema?</em>
+                    </p>
+
+                    <!-- ========================================== -->
+                    <!-- TIPOS DE ANALÍTICA (DESCRIPTIVE, DIAGNOSTIC, ETC) -->
+                    <!-- ========================================== -->
+                    <h4 class="mt-4"><i class="fas fa-chart-simple me-2 text-success"></i>Tipos de Analítica Aplicados</h4>
+                    
+                    <div class="row g-4 mt-2">
+                        <!-- Descriptive Analytics -->
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-chart-pie text-primary me-2"></i>Descriptive Analytics</h5>
+                                    <hr>
+                                    <p class="small">
+                                        Describe lo que ha sucedido en el ecosistema emprendedor mediante indicadores clave y visualizaciones.
+                                    </p>
+                                    <p class="small mb-0 text-muted">
+                                        <strong>Ejemplo en el proyecto:</strong> KPIs como 42,000 empresas vigentes, 
+                                        71.73% de microempresas, 61.45 de promedio de ocupación.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Diagnostic Analytics -->
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-stethoscope text-warning me-2"></i>Diagnostic Analytics</h5>
+                                    <hr>
+                                    <p class="small">
+                                        Analiza por qué ocurren ciertos fenómenos, identificando causas y relaciones entre variables.
+                                    </p>
+                                    <p class="small mb-0 text-muted">
+                                        <strong>Ejemplo en el proyecto:</strong> Brecha de género del 15.55%, 
+                                        dominio del sector comercio (125K vs 40K de servicios).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Predictive Analytics (potencial) -->
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-chart-line text-info me-2"></i>Predictive Analytics</h5>
+                                    <hr>
+                                    <p class="small">
+                                        Anticipa tendencias futuras utilizando modelos estadísticos y machine learning.
+                                    </p>
+                                    <p class="small mb-0 text-muted">
+                                        <strong>Potencial en el proyecto:</strong> Predecir qué empresas tienen mayor riesgo de cierre 
+                                        o qué localidades tendrán mayor crecimiento.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Prescriptive Analytics (potencial) -->
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-cogs text-danger me-2"></i>Prescriptive Analytics</h5>
+                                    <hr>
+                                    <p class="small">
+                                        Recomienda acciones específicas para optimizar resultados futuros.
+                                    </p>
+                                    <p class="small mb-0 text-muted">
+                                        <strong>Potencial en el proyecto:</strong> Recomendar políticas de apoyo focalizadas por localidad, 
+                                        sector o tipo de empresa.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ========================================== -->
+                    <!-- CICLO DE BUSINESS ANALYTICS                  -->
+                    <!-- ========================================== -->
+                    <h4 class="mt-4"><i class="fas fa-sync-alt me-2 text-info"></i>Ciclo de Business Analytics en el Proyecto</h4>
+                    <div class="border rounded p-3 bg-light">
+                        <ol class="mb-0">
+                            <li><strong>Recolección de datos:</strong> Integración de 5 datasets (~30,000 registros)</li>
+                            <li><strong>Limpieza y preparación:</strong> Normalización, encoding, eliminación de registros no válidos</li>
+                            <li><strong>Análisis exploratorio (EDA):</strong> Visualizaciones en Power BI y Plotly</li>
+                            <li><strong>Modelado multidimensional:</strong> Esquema estrella con tabla de hechos y dimensiones</li>
+                            <li><strong>Visualización interactiva:</strong> Dashboard Flask + Power BI</li>
+                            <li><strong>Toma de decisiones:</strong> Recomendaciones basadas en hallazgos (brecha de género, concentración de microempresas, etc.)</li>
+                        </ol>
+                    </div>
+
+                    <!-- ========================================== -->
+                    <!-- HALLZGOS CON VALOR DE NEGOCIO               -->
+                    <!-- ========================================== -->
+                    <h4 class="mt-4"><i class="fas fa-lightbulb me-2 text-warning"></i>Hallazgos con Valor de Negocio</h4>
+                    
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-6">
+                            <div class="border rounded p-3 h-100">
+                                <h6><i class="fas fa-chart-line text-success me-2"></i>Oportunidad 1</h6>
+                                <p class="small mb-0">El <strong>71.73% de las empresas son microempresas</strong>, lo que indica vulnerabilidad pero también oportunidad para programas de fortalecimiento empresarial.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded p-3 h-100">
+                                <h6><i class="fas fa-venus-mars text-primary me-2"></i>Oportunidad 2</h6>
+                                <p class="small mb-0">La <strong>brecha de género del 15.55%</strong> (50.48% masculino vs 34.93% femenino) representa una oportunidad para incentivar el emprendimiento femenino.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded p-3 h-100">
+                                <h6><i class="fas fa-store text-warning me-2"></i>Oportunidad 3</h6>
+                                <p class="small mb-0">El <strong>sector comercio domina con 125,000 establecimientos</strong>, mientras que industria y agropecuario están subrepresentados, señal de economía poco diversificada.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded p-3 h-100">
+                                <h6><i class="fas fa-chart-simple text-info me-2"></i>Oportunidad 4</h6>
+                                <p class="small mb-0">El <strong>promedio de ocupación es de 61.45</strong>, lo que indica margen para mejorar la productividad y actividad empresarial en la región.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ========================================== -->
+                    <!-- MATRIZ DE DECISIÓN BAJO BUSINESS ANALYTICS   -->
+                    <!-- ========================================== -->
+                    <h4 class="mt-4"><i class="fas fa-table me-2 text-secondary"></i>Matriz de Decisión basada en Business Analytics</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-dark">
+                                <tr><th>Variable</th><th>Hallazgo</th><th>Acción Recomendada</th><th>Impacto Esperado</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Tamaño de empresa</td><td>71.73% microempresas</td><td>Líneas de crédito blandas y capacitación</td><td>Reducir vulnerabilidad y aumentar supervivencia</td></tr>
+                                <tr><td>Género</td><td>Brecha del 15.55%</td><td>Programas de emprendimiento femenino</td><td>Equidad y aprovechamiento de talento</td></tr>
+                                <tr><td>Sector económico</td><td>Comercio domina (125K)</td><td>Diversificación hacia industria y agro</td><td>Economía más resiliente</td></tr>
+                                <tr><td>Ocupación</td><td>61.45 de promedio</td><td>Capacitación en productividad</td><td>Mayor actividad empresarial</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- ========================================== -->
+                    <!-- TOOLCHAIN DE BUSINESS ANALYTICS              -->
+                    <!-- ========================================== -->
+                    <h4 class="mt-4"><i class="fas fa-toolbox me-2 text-danger"></i>Toolchain de Business Analytics Utilizado</h4>
+                    <div class="border rounded p-3 bg-light">
+                        <div class="row text-center">
+                            <div class="col-6 col-md-3 mb-2">
+                                <i class="fas fa-database fa-2x text-primary"></i>
+                                <p class="small mb-0">Pandas<br>Python</p>
+                            </div>
+                            <div class="col-6 col-md-3 mb-2">
+                                <i class="fas fa-chart-line fa-2x text-success"></i>
+                                <p class="small mb-0">Plotly<br>Power BI</p>
+                            </div>
+                            <div class="col-6 col-md-3 mb-2">
+                                <i class="fab fa-python fa-2x text-warning"></i>
+                                <p class="small mb-0">Flask<br>Python</p>
+                            </div>
+                            <div class="col-6 col-md-3 mb-2">
+                                <i class="fas fa-cloud-upload-alt fa-2x text-info"></i>
+                                <p class="small mb-0">Render.com<br>Despliegue</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ========================================== -->
+                    <!-- CONCLUSIÓN BUSINESS ANALYTICS                -->
+                    <!-- ========================================== -->
+                    <div class="alert alert-success mt-4">
+                        <i class="fas fa-chart-line me-2"></i>
+                        <strong>Conclusión de Business Analytics:</strong> Este proyecto demuestra cómo la aplicación de técnicas de Business Analytics sobre datos abiertos permite generar insights accionables para mejorar la sostenibilidad del emprendimiento en Cundinamarca, identificando brechas de género, concentración sectorial y oportunidades de diversificación económica.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .border {
+        transition: all 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-3px);
+        transition: all 0.3s ease;
+    }
+    .table td, .table th {
+        vertical-align: middle;
+    }
+</style>
+{% endblock %}

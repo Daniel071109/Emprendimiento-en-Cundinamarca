@@ -71,6 +71,13 @@ def about():
     return render_template('about.html')
 
 # ==========================================
+# ==========================================
+# BUSINESS ANALYTICS
+# ==========================================
+
+@app.route('/business-analytics')
+def business_analytics():
+    return render_template('business_analytics.html')
 
 if __name__ == '__main__':
 
