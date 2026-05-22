@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+
+{% block title %}PySpark - Machine Learning y Tiempos{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body p-5">
+                    <i class="fas fa-microchip fa-3x text-primary mb-3"></i>
+                    <h1 class="display-5 fw-bold mb-4">Machine Learning con PySpark MLlib</h1>
+                    <p class="lead mb-4">Clustering con K-Means y comparación de tiempos de procesamiento distribuido.</p>
+                    
+                    <!-- Gráfico de Clusters -->
+                    <h4 class="mt-4"><i class="fas fa-chart-scatter me-2 text-primary"></i>Visualización de Clusters</h4>
+                    <div class="card mb-4 border-0 shadow-sm">
+                        <div class="card-body">
+                            <canvas id="clusterChart" style="height: 400px; width: 100%;"></canvas>
+                            <p class="text-muted mt-2 text-center">Gráfico de dispersión: Población vs Empresas Vigentes, coloreado por cluster</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Comparación de tiempos -->
+                    <h4 class="mt-4"><i class="fas fa-clock me-2 text-warning"></i>Comparación de Tiempos de Procesamiento</h4>
+                    <div class="table-responsive mb-4">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Configuración</th>
+                                    <th>Master</th>
+                                    <th>Workers</th>
+                                    <th>Tiempo (segundos)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in comparacion_tiempos %}
+                                <tr>
+                                    <td>{{ item.configuracion }}</td
+                                    <td>{{ item.master }}</td
+                                    <td>{{ item.workers }}</td
+                                    <td class="{% if item.tiempo_segundos is not none and item.tiempo_segundos != 'Error' and item.tiempo_segundos < 2 %}text-success fw-bold{% endif %}">
+                                        {% if item.tiempo_segundos is not none and item.tiempo_segundos != 'Error' %}
+                                            {{ item.tiempo_segundos }} s
+                                        {% else %}
+                                            {{ item.tiempo_segundos }}
+                                        {% endif %}
+                                    </td
+                                 ?>
+                                {% endfor %}
+                            </tbody>
+                         </table
+                    </div>
+                    
+                    <!-- Resultados K-Means -->
+                    <h4 class="mt-4"><i class="fas fa-chart-pie me-2 text-success"></i>Clustering K-Means</h4>
+                    
+                    {% if kmeans_resultado and kmeans_resultado.error %}
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        Error: {{ kmeans_resultado.error }}
+                    </div>
+                    {% else %}
+                    
+                    <div class="alert alert-info">
+                        <i class="fas fa-chart-line me-2"></i>
+                        <strong>Silhouette Score:</strong> {{ kmeans_resultado.silhouette_score }} - Este valor indica la calidad del clustering. Valores cercanos a 1 significan clusters bien separados.
+                    </div>
+                    
+                    <h5 class="mt-3">Clusters formados (k=3)</h5>
+                    <div class="table-responsive mb-4">
+                        <table class="table table-bordered table-hover">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>Localidad</th>
+                                    <th>Población</th>
+                                    <th>Empresas Vigentes</th>
+                                    <th>Tasa Supervivencia</th>
+                                    <th>Cluster</th>
+                                 </tr
+                            </thead>
+                            <tbody>
+                                {% for item in kmeans_resultado.clusters %}
+                                <tr class="{% if item.cluster == 0 %}table-success{% elif item.cluster == 1 %}table-info{% else %}table-warning{% endif %}">
+                                    <td class="fw-bold">{{ item.localidad }}</td>
+                                    <td class="text-end">{{ "{:,.0f}".format(item.poblacion) }}</td>
+                                    <td class="text-end">{{ "{:,.0f}".format(item.empresas) }}</td>
+                                    <td class="text-end">{{ item.tasa }}%</td>
+                                    <td class="text-center">
+                                        <span class="badge {% if item.cluster == 0 %}bg-success{% elif item.cluster == 1 %}bg-info{% else %}bg-warning{% endif %}">
+                                            Cluster {{ item.cluster }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Centros de los Clusters - Versión en tabla ordenada -->
+                    <h5 class="mt-4">Centros de los Clusters</h5>
+                    <div class="table-responsive mb-4">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Cluster</th>
+                                    <th class="text-end">Población Media</th>
+                                    <th class="text-end">Empresas Medias</th>
+                                    <th class="text-end">Tasa Media</th>
+                                    <th>Interpretación</th>
+                                 </tr
+                            </thead>
+                            <tbody>
+                                {% for centro in kmeans_resultado.centros %}
+                                <tr class="{% if centro.cluster == 0 %}table-success{% elif centro.cluster == 1 %}table-info{% else %}table-warning{% endif %}">
+                                    <td class="fw-bold text-center">
+                                        <span class="badge {% if centro.cluster == 0 %}bg-success{% elif centro.cluster == 1 %}bg-info{% else %}bg-warning{% endif %} px-3 py-2">
+                                            Cluster {{ centro.cluster }}
+                                        </span>
+                                    </td>
+                                    <td class="text-end fw-bold">{{ "{:,.0f}".format(centro.poblacion) }}</td>
+                                    <td class="text-end fw-bold">{{ "{:,.0f}".format(centro.empresas) }}</td>
+                                    <td class="text-end fw-bold">{{ centro.tasa }}%</td>
+                                    <td>
+                                        {% if centro.cluster == 0 %}
+                                            <i class="fas fa-trophy text-success me-1"></i> Mayor potencial emprendedor
+                                        {% elif centro.cluster == 1 %}
+                                            <i class="fas fa-chart-line text-info me-1"></i> Potencial medio
+                                        {% else %}
+                                            <i class="fas fa-chart-simple text-warning me-1"></i> Menor actividad empresarial
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="alert alert-secondary mt-3">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        <strong>Interpretación:</strong> El algoritmo K-Means agrupó las localidades en 3 clusters según sus características. El Cluster 0 agrupa las localidades de mayor potencial (Suba, Kennedy, Engativá), el Cluster 1 las de potencial medio, y el Cluster 2 las de menor actividad empresarial.
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if kmeans_resultado.grafico_datos %}
+        const localidades = {{ kmeans_resultado.grafico_datos.localidades | tojson | safe }};
+        const poblaciones = {{ kmeans_resultado.grafico_datos.poblaciones | tojson | safe }};
+        const empresas = {{ kmeans_resultado.grafico_datos.empresas | tojson | safe }};
+        const clusters = {{ kmeans_resultado.grafico_datos.clusters | tojson | safe }};
+        
+        const colores = ['#28a745', '#17a2b8', '#ffc107'];
+        const datasets = [];
+        
+        for (let c = 0; c < 3; c++) {
+            const puntos = [];
+            for (let i = 0; i < localidades.length; i++) {
+                if (clusters[i] === c) {
+                    puntos.push({
+                        x: poblaciones[i],
+                        y: empresas[i]
+                    });
+                }
+            }
+            datasets.push({
+                label: `Cluster ${c}`,
+                data: puntos,
+                backgroundColor: colores[c],
+                borderColor: colores[c],
+                borderWidth: 1,
+                pointRadius: 8,
+                pointHoverRadius: 12
+            });
+        }
+        
+        const ctx = document.getElementById('clusterChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'scatter',
+            data: { datasets: datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const datasetIndex = context.datasetIndex;
+                                for (let i = 0; i < localidades.length; i++) {
+                                    if (clusters[i] === datasetIndex && poblaciones[i] === context.parsed.x && empresas[i] === context.parsed.y) {
+                                        return `${localidades[i]}: Población ${context.parsed.x.toLocaleString()}, Empresas ${context.parsed.y.toLocaleString()}`;
+                                    }
+                                }
+                                return `Población: ${context.parsed.x.toLocaleString()}, Empresas: ${context.parsed.y.toLocaleString()}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Población Promedio', font: { weight: 'bold' } },
+                        ticks: { callback: function(val) { return val.toLocaleString(); } }
+                    },
+                    y: {
+                        title: { display: true, text: 'Empresas Vigentes', font: { weight: 'bold' } },
+                        ticks: { callback: function(val) { return val.toLocaleString(); } }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'top', title: { display: true, text: 'Clusters' } }
+                }
+            }
+        });
+        {% endif %}
+    });
+</script>
+{% endblock %}

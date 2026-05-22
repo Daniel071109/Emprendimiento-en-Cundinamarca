@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Niveles de Conocimiento - Minería de Datos{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body p-5">
+                    <i class="fas fa-brain fa-3x text-primary mb-3"></i>
+                    <h1 class="display-5 fw-bold mb-4">Niveles de Conocimiento en Minería de Datos</h1>
+                    <p class="lead mb-4">Clasificación del conocimiento generado a partir del análisis del dataset de emprendimiento en Cundinamarca.</p>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th style="width: 20%">Nivel de Conocimiento</th>
+                                    <th style="width: 35%">Descripción</th>
+                                    <th style="width: 45%">Ejemplo en el Proyecto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-primary">
+                                    <td class="fw-bold"> Conocimiento Evidente</td>
+                                    <td>Información explícita, fácilmente observable y medible directamente en los datos.</td>
+                                    <td>
+                                        <ul class="mb-0">
+                                            <li>Total de localidades: 20</li>
+                                            <li>Total de registros: 353,369 únicos</li>
+                                            <li>5 sectores económicos</li>
+                                            <li>Período: Abril 2026</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="table-success">
+                                    <td class="fw-bold"> Conocimiento Multidimensional</td>
+                                    <td>Relaciones entre múltiples variables que permiten cruzar información de diferentes dimensiones.</td>
+                                    <td>
+                                        <ul class="mb-0">
+                                            <li>Top localidades: Suba (5,730), Kennedy (5,163)</li>
+                                            <li>Distribución por sexo: Masculino 50.48%, Femenino 34.93%</li>
+                                            <li>Distribución por edad: 18-28 años domina</li>
+                                            <li>Sector dominante: Comercio (125,000 empresas)</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="table-warning">
+                                    <td class="fw-bold"> Conocimiento Oculto</td>
+                                    <td>Patrones, tendencias o anomalías no evidentes a simple vista que requieren minería de datos.</td>
+                                    <td>
+                                        <ul class="mb-0">
+                                            <li>Más del 90% del dataset eran duplicados (3.6M de 4M)</li>
+                                            <li>Brecha de género del 15.55% en emprendimiento</li>
+                                            <li>Microempresas representan 71.73% del tejido empresarial</li>
+                                            <li>Alta concentración económica en comercio vs industria</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="table-danger">
+                                    <td class="fw-bold"> Conocimiento Profundo</td>
+                                    <td>Insights accionables que permiten tomar decisiones estratégicas basadas en los datos.</td>
+                                    <td>
+                                        <ul class="mb-0">
+                                            <li><strong>Recomendación 1:</strong> Focalizar políticas en microempresas (71.73%)</li>
+                                            <li><strong>Recomendación 2:</strong> Programas de emprendimiento femenino</li>
+                                            <li><strong>Recomendación 3:</strong> Diversificación hacia industria y servicios</li>
+                                            <li><strong>Recomendación 4:</strong> Capacitación en productividad</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-chart-line me-2"></i>
+                        <strong>Conclusión:</strong> Este proyecto demuestra cómo la minería de datos permite transformar datos crudos en conocimiento profundo para la toma de decisiones estratégicas en el ecosistema emprendedor de Cundinamarca.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
