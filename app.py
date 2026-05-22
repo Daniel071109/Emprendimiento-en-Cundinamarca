@@ -79,6 +79,17 @@ def about():
 def business_analytics():
     return render_template('business_analytics.html')
 
+# ==========================================
+# PYSPARK ANALYTICS
+# ==========================================
+
+from services.spark import obtener_resultados
+
+@app.route('/pyspark-analisis')
+def pyspark_analisis():
+    resultados = obtener_resultados()
+    return render_template('pyspark_analisis.html', **resultados)
+
 if __name__ == '__main__':
 
     app.run(
