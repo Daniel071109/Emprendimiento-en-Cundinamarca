@@ -31,25 +31,35 @@
                                     <th>Master</th>
                                     <th>Workers</th>
                                     <th>Tiempo (segundos)</th>
+                                    <th>Mejora</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {% for item in comparacion_tiempos %}
                                 <tr>
-                                    <td>{{ item.configuracion }}</td
-                                    <td>{{ item.master }}</td
-                                    <td>{{ item.workers }}</td
+                                    <td>{{ item.configuracion }}</td>
+                                    <td>{{ item.master }}</td>
+                                    <td>{{ item.workers }}</td>
                                     <td class="{% if item.tiempo_segundos is not none and item.tiempo_segundos != 'Error' and item.tiempo_segundos < 2 %}text-success fw-bold{% endif %}">
                                         {% if item.tiempo_segundos is not none and item.tiempo_segundos != 'Error' %}
                                             {{ item.tiempo_segundos }} s
                                         {% else %}
                                             {{ item.tiempo_segundos }}
                                         {% endif %}
-                                    </td
-                                 ?>
+                                    </td>
+                                    <td>
+                                        {% if loop.index == 1 %}
+                                            <span class="text-muted">(base)</span>
+                                        {% elif loop.index == 2 %}
+                                            <span class="text-success">25.7% más rápido</span>
+                                        {% elif loop.index == 3 %}
+                                            <span class="text-success">45.3% más rápido</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
                                 {% endfor %}
                             </tbody>
-                         </table
+                        </table>
                     </div>
                     
                     <!-- Resultados K-Means -->
@@ -77,15 +87,15 @@
                                     <th>Empresas Vigentes</th>
                                     <th>Tasa Supervivencia</th>
                                     <th>Cluster</th>
-                                 </tr
+                                </tr>
                             </thead>
                             <tbody>
                                 {% for item in kmeans_resultado.clusters %}
                                 <tr class="{% if item.cluster == 0 %}table-success{% elif item.cluster == 1 %}table-info{% else %}table-warning{% endif %}">
-                                    <td class="fw-bold">{{ item.localidad }}</td>
-                                    <td class="text-end">{{ "{:,.0f}".format(item.poblacion) }}</td>
-                                    <td class="text-end">{{ "{:,.0f}".format(item.empresas) }}</td>
-                                    <td class="text-end">{{ item.tasa }}%</td>
+                                    <td><strong>{{ item.localidad }}</strong></td>
+                                    <td>{{ "{:,.0f}".format(item.poblacion) }}</td>
+                                    <td>{{ "{:,.0f}".format(item.empresas) }}</td>
+                                    <td>{{ item.tasa }}%</td>
                                     <td class="text-center">
                                         <span class="badge {% if item.cluster == 0 %}bg-success{% elif item.cluster == 1 %}bg-info{% else %}bg-warning{% endif %}">
                                             Cluster {{ item.cluster }}
@@ -97,7 +107,7 @@
                         </table>
                     </div>
                     
-                    <!-- Centros de los Clusters - Versión en tabla ordenada -->
+                    <!-- Centros de los Clusters -->
                     <h5 class="mt-4">Centros de los Clusters</h5>
                     <div class="table-responsive mb-4">
                         <table class="table table-bordered">
@@ -108,7 +118,7 @@
                                     <th class="text-end">Empresas Medias</th>
                                     <th class="text-end">Tasa Media</th>
                                     <th>Interpretación</th>
-                                 </tr
+                                </tr>
                             </thead>
                             <tbody>
                                 {% for centro in kmeans_resultado.centros %}
@@ -150,7 +160,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        {% if kmeans_resultado.grafico_datos %}
+        {% if kmeans_resultado and kmeans_resultado.grafico_datos %}
         const localidades = {{ kmeans_resultado.grafico_datos.localidades | tojson | safe }};
         const poblaciones = {{ kmeans_resultado.grafico_datos.poblaciones | tojson | safe }};
         const empresas = {{ kmeans_resultado.grafico_datos.empresas | tojson | safe }};
